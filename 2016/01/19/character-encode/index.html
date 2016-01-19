@@ -57,23 +57,17 @@
 
 
 
-<meta name="description" content="post/get请求中文乱码解决标签（空格分隔）： java
-
-昨天给iOS同事那边调试接口，目的是保存微信用户信息。接口用户姓名始终乱码，同事说他那边已经转成UTF-8。以前每次碰到这个问题，第一反应就是看看项目中有没有CharacterEncodeFilter，且web.xml中是否忘了配置。看看项目果然是没有，于是自己写了个过滤器加上去。以为大功告成，结果还是乱码。于是找度娘找谷歌，最多就两">
+<meta name="description" content="昨天给iOS同事那边调试接口，目的是保存微信用户信息。接口用户姓名始终乱码，同事说他那边已经转成UTF-8。以前每次碰到这个问题，第一反应就是看看项目中有没有CharacterEncodeFilter，且web.xml中是否忘了配置。看看项目果然是没有，于是自己写了个过滤器加上去。以为大功告成，结果还是乱码。于是找度娘找谷歌，最多就两个版本123String str = new String(ol">
 <meta property="og:type" content="article">
 <meta property="og:title" content="post/get请求中文乱码解决">
 <meta property="og:url" content="http://hooau.com/2016/01/19/character-encode/index.html">
 <meta property="og:site_name" content="I'm hooau">
-<meta property="og:description" content="post/get请求中文乱码解决标签（空格分隔）： java
-
-昨天给iOS同事那边调试接口，目的是保存微信用户信息。接口用户姓名始终乱码，同事说他那边已经转成UTF-8。以前每次碰到这个问题，第一反应就是看看项目中有没有CharacterEncodeFilter，且web.xml中是否忘了配置。看看项目果然是没有，于是自己写了个过滤器加上去。以为大功告成，结果还是乱码。于是找度娘找谷歌，最多就两">
+<meta property="og:description" content="昨天给iOS同事那边调试接口，目的是保存微信用户信息。接口用户姓名始终乱码，同事说他那边已经转成UTF-8。以前每次碰到这个问题，第一反应就是看看项目中有没有CharacterEncodeFilter，且web.xml中是否忘了配置。看看项目果然是没有，于是自己写了个过滤器加上去。以为大功告成，结果还是乱码。于是找度娘找谷歌，最多就两个版本123String str = new String(ol">
 <meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/tomcat-server.png">
-<meta property="og:updated_time" content="2016-01-19T15:05:19.344Z">
+<meta property="og:updated_time" content="2016-01-19T15:19:18.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="post/get请求中文乱码解决">
-<meta name="twitter:description" content="post/get请求中文乱码解决标签（空格分隔）： java
-
-昨天给iOS同事那边调试接口，目的是保存微信用户信息。接口用户姓名始终乱码，同事说他那边已经转成UTF-8。以前每次碰到这个问题，第一反应就是看看项目中有没有CharacterEncodeFilter，且web.xml中是否忘了配置。看看项目果然是没有，于是自己写了个过滤器加上去。以为大功告成，结果还是乱码。于是找度娘找谷歌，最多就两">
+<meta name="twitter:description" content="昨天给iOS同事那边调试接口，目的是保存微信用户信息。接口用户姓名始终乱码，同事说他那边已经转成UTF-8。以前每次碰到这个问题，第一反应就是看看项目中有没有CharacterEncodeFilter，且web.xml中是否忘了配置。看看项目果然是没有，于是自己写了个过滤器加上去。以为大功告成，结果还是乱码。于是找度娘找谷歌，最多就两个版本123String str = new String(ol">
 
 
 
@@ -249,9 +243,7 @@
       
 
       
-        <h1 id="post/get请求中文乱码解决">post/get请求中文乱码解决</h1><p>标签（空格分隔）： java</p>
-<hr>
-<p>昨天给iOS同事那边调试接口，目的是保存微信用户信息。接口用户姓名始终乱码，同事说他那边已经转成UTF-8。以前每次碰到这个问题，第一反应就是看看项目中有没有CharacterEncodeFilter，且web.xml中是否忘了配置。看看项目果然是没有，于是自己写了个过滤器加上去。以为大功告成，结果还是乱码。于是找度娘找谷歌，最多就两个版本<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String</span> <span class="built_in">str</span> = <span class="keyword">new</span> <span class="keyword">String</span>(oldStr.getBytes(<span class="string">"ISO8859-1"</span>), <span class="string">"UTF-8"</span>);</span><br><span class="line">    </span><br><span class="line">request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure></p>
+        <p>昨天给iOS同事那边调试接口，目的是保存微信用户信息。接口用户姓名始终乱码，同事说他那边已经转成UTF-8。以前每次碰到这个问题，第一反应就是看看项目中有没有CharacterEncodeFilter，且web.xml中是否忘了配置。看看项目果然是没有，于是自己写了个过滤器加上去。以为大功告成，结果还是乱码。于是找度娘找谷歌，最多就两个版本<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String</span> <span class="built_in">str</span> = <span class="keyword">new</span> <span class="keyword">String</span>(oldStr.getBytes(<span class="string">"ISO8859-1"</span>), <span class="string">"UTF-8"</span>);</span><br><span class="line">    </span><br><span class="line">request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure></p>
 <p>最后问了问同事（年终奖刚抽中万元现金，为什么不是我╥﹏╥…），加上自己回去调试，问题终于解决。。。</p>
 <p><strong>总结如下</strong></p>
 <p>post请求：设置过滤器即可</p>
@@ -421,7 +413,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#post/get请求中文乱码解决"><span class="nav-number">1.</span> <span class="nav-text">post/get请求中文乱码解决</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
