@@ -1543,7 +1543,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffffcf;
+  background: #f5ffc8;
 }
 .sidebar-nav {
   margin: 0 0 20px;
@@ -2014,7 +2014,7 @@ ul li {
   list-style: circle;
 }
 .header {
-  background: #000;
+  background: #2bb8aa;
   height: 30px;
   margin-bottom: 90px;
 }
@@ -2184,6 +2184,9 @@ ul li {
   .posts-expand .post-title {
     font-size: 26px;
   }
+}
+.posts-expand .post-title .post-title-link {
+  color: #2bb8aa;
 }
 .posts-expand .post-title:hover:before {
   background: #222;
