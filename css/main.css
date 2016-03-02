@@ -1543,7 +1543,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d48e12;
+  background: #ffffcf;
 }
 .sidebar-nav {
   margin: 0 0 20px;
@@ -2167,13 +2167,13 @@ ul li {
 .posts-expand .post-meta {
   margin-top: 5px;
   margin-bottom: 20px;
-  text-align: center;
+  text-align: left;
 }
 .posts-expand .post-title {
   position: relative;
   font-size: 26px;
   font-weight: 400;
-  text-align: center;
+  text-align: left;
 }
 @media (max-width: 767px) {
   .posts-expand .post-title {
