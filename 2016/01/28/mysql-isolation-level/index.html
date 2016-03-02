@@ -57,27 +57,18 @@
 
 
 
-<meta name="description" content="前两天线上项目在有的手机上出现bug，开始以为是兼容性问题，但我们同事手机都试了，都OK。折腾了一天，最后发现问题的根源是事务这块，于是决定回头再看看这方面内容。很长时间自己对数据库就仅限于写写sql语句，对事务逐渐淡忘，现在捡起来应该不晚。网上看了些资料，便是动手重现事务隔离级别分别解决的四个问题。MySQL有四个事务隔离级别，级别从低到高：
-
-
-未提交读（read uncommitted）">
+<meta name="description" content="前两天线上项目在有的手机上出现bug，开始以为是兼容性问题，但我们同事手机都试了，都OK。折腾了一天，最后发现问题的根源是事务这块，于是决定回头再看看这方面内容。很长时间自己对数据库就仅限于写写sql语句，对事务逐渐淡忘，现在捡起来应该不晚。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL隔离级别">
 <meta property="og:url" content="http://hooau.com/2016/01/28/mysql-isolation-level/index.html">
 <meta property="og:site_name" content="I'm hooau">
-<meta property="og:description" content="前两天线上项目在有的手机上出现bug，开始以为是兼容性问题，但我们同事手机都试了，都OK。折腾了一天，最后发现问题的根源是事务这块，于是决定回头再看看这方面内容。很长时间自己对数据库就仅限于写写sql语句，对事务逐渐淡忘，现在捡起来应该不晚。网上看了些资料，便是动手重现事务隔离级别分别解决的四个问题。MySQL有四个事务隔离级别，级别从低到高：
-
-
-未提交读（read uncommitted）">
+<meta property="og:description" content="前两天线上项目在有的手机上出现bug，开始以为是兼容性问题，但我们同事手机都试了，都OK。折腾了一天，最后发现问题的根源是事务这块，于是决定回头再看看这方面内容。很长时间自己对数据库就仅限于写写sql语句，对事务逐渐淡忘，现在捡起来应该不晚。">
 <meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/tranisolation.png">
 <meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/tranwangdc.png">
-<meta property="og:updated_time" content="2016-01-28T09:49:08.805Z">
+<meta property="og:updated_time" content="2016-03-02T08:24:07.430Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL隔离级别">
-<meta name="twitter:description" content="前两天线上项目在有的手机上出现bug，开始以为是兼容性问题，但我们同事手机都试了，都OK。折腾了一天，最后发现问题的根源是事务这块，于是决定回头再看看这方面内容。很长时间自己对数据库就仅限于写写sql语句，对事务逐渐淡忘，现在捡起来应该不晚。网上看了些资料，便是动手重现事务隔离级别分别解决的四个问题。MySQL有四个事务隔离级别，级别从低到高：
-
-
-未提交读（read uncommitted）">
+<meta name="twitter:description" content="前两天线上项目在有的手机上出现bug，开始以为是兼容性问题，但我们同事手机都试了，都OK。折腾了一天，最后发现问题的根源是事务这块，于是决定回头再看看这方面内容。很长时间自己对数据库就仅限于写写sql语句，对事务逐渐淡忘，现在捡起来应该不晚。">
 
 
 
@@ -260,7 +251,7 @@
       
 
       
-        <p>前两天线上项目在有的手机上出现bug，开始以为是兼容性问题，但我们同事手机都试了，都OK。折腾了一天，最后发现问题的根源是事务这块，于是决定回头再看看这方面内容。很长时间自己对数据库就仅限于写写sql语句，对事务逐渐淡忘，现在捡起来应该不晚。<br>网上看了些资料，便是动手重现事务隔离级别分别解决的四个问题。MySQL有四个事务隔离级别，级别从低到高：</p>
+        <p>前两天线上项目在有的手机上出现bug，开始以为是兼容性问题，但我们同事手机都试了，都OK。折腾了一天，最后发现问题的根源是事务这块，于是决定回头再看看这方面内容。很长时间自己对数据库就仅限于写写sql语句，对事务逐渐淡忘，现在捡起来应该不晚。<a id="more"></a><br>网上看了些资料，便是动手重现事务隔离级别分别解决的四个问题。MySQL有四个事务隔离级别，级别从低到高：</p>
 <blockquote>
 <ul>
 <li>未提交读（read uncommitted）    允许脏读</li>
