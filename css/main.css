@@ -1543,7 +1543,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #75ffff;
+  background: #58337e;
 }
 .sidebar-nav {
   margin: 0 0 20px;
@@ -2116,7 +2116,7 @@ ul li {
   }
 }
 .menu .menu-item a:hover {
-  background: #fff;
+  text-decoration: underline;
 }
 .menu a::before {
   display: none;
