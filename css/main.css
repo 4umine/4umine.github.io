@@ -1543,7 +1543,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f5ffc8;
+  background: #95ff90;
 }
 .sidebar-nav {
   margin: 0 0 20px;
@@ -2290,8 +2290,8 @@ ul li {
 .footer {
   margin-top: 80px;
   padding: 10px 0;
-  background: #f5f5f5;
-  color: #666;
+  background: #2bb8aa;
+  color: #fff;
 }
 .footer-inner {
   margin: 0 auto;
