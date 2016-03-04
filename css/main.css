@@ -186,7 +186,7 @@ th {
 body {
   position: relative;
   font-family: "Microsoft YaHei", Verdana, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 2;
   color: #555;
   background: #fff;
@@ -498,7 +498,7 @@ pre,
   margin: 20px 0;
   padding: 15px;
   overflow: auto;
-  font-size: 14px;
+  font-size: 16px;
   color: #ccc;
   line-height: 1.6;
 }
@@ -1045,7 +1045,7 @@ pre .javascript .function {
 .post-body .figure .caption {
   margin: 10px auto 15px;
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
   color: #999;
   font-weight: bold;
   line-height: 1;
@@ -1543,7 +1543,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #95ff90;
+  background: #d4ff46;
 }
 .sidebar-nav {
   margin: 0 0 20px;
@@ -2214,7 +2214,7 @@ ul li {
 }
 .post-more-link a {
   padding: 0;
-  font-size: 16px;
+  font-size: 18px;
   color: #666;
   background: none;
   border: none;
