@@ -57,17 +57,20 @@
 
 
 
-<meta name="description" content="首先让我意识到这两者差别的是在学习springmvc过程中，在web.xml中配置DispatcherServlet映射路径时碰到的，先看看引起这个问题的场景。">
+<meta name="description" content="首先让我意识到这两者差别的是在学习springmvc过程中，在web.xml中配置DispatcherServlet映射路径时碰到的，先看看引起这个问题的场景。
+场景web.xml中DispatcherServlet配置123456789101112131415&amp;lt;!-- 前端控制器配置 --&amp;gt;&amp;lt;servlet&amp;gt;    &amp;lt;servlet-name&amp;gt;springmv">
 <meta property="og:type" content="article">
 <meta property="og:title" content="url-pattern中 / 和 /* 的区别">
 <meta property="og:url" content="http://hooau.com/2016/03/01/servlet-mapping-url-pattern/index.html">
 <meta property="og:site_name" content="I'm hooau">
-<meta property="og:description" content="首先让我意识到这两者差别的是在学习springmvc过程中，在web.xml中配置DispatcherServlet映射路径时碰到的，先看看引起这个问题的场景。">
+<meta property="og:description" content="首先让我意识到这两者差别的是在学习springmvc过程中，在web.xml中配置DispatcherServlet映射路径时碰到的，先看看引起这个问题的场景。
+场景web.xml中DispatcherServlet配置123456789101112131415&amp;lt;!-- 前端控制器配置 --&amp;gt;&amp;lt;servlet&amp;gt;    &amp;lt;servlet-name&amp;gt;springmv">
 <meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/springmv-postman.png">
-<meta property="og:updated_time" content="2016-03-02T08:19:08.508Z">
+<meta property="og:updated_time" content="2016-03-18T07:18:08.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="url-pattern中 / 和 /* 的区别">
-<meta name="twitter:description" content="首先让我意识到这两者差别的是在学习springmvc过程中，在web.xml中配置DispatcherServlet映射路径时碰到的，先看看引起这个问题的场景。">
+<meta name="twitter:description" content="首先让我意识到这两者差别的是在学习springmvc过程中，在web.xml中配置DispatcherServlet映射路径时碰到的，先看看引起这个问题的场景。
+场景web.xml中DispatcherServlet配置123456789101112131415&amp;lt;!-- 前端控制器配置 --&amp;gt;&amp;lt;servlet&amp;gt;    &amp;lt;servlet-name&amp;gt;springmv">
 
 
 
@@ -260,7 +263,7 @@
       
 
       
-        <p>首先让我意识到这两者差别的是在学习springmvc过程中，在web.xml中配置DispatcherServlet映射路径时碰到的，先看看引起这个问题的场景。<a id="more"></a></p>
+        <p>首先让我意识到这两者差别的是在学习springmvc过程中，在web.xml中配置DispatcherServlet映射路径时碰到的，先看看引起这个问题的场景。</p>
 <h3 id="场景">场景</h3><p>web.xml中DispatcherServlet配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 前端控制器配置 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="title">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="title">servlet-class</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="title">init-param</span>&gt;</span></span><br><span class="line">  	    <span class="tag">&lt;<span class="title">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="title">param-name</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="title">param-value</span>&gt;</span>classpath:config/springmvc-servlet.xml<span class="tag">&lt;/<span class="title">param-value</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="title">init-param</span>&gt;</span></span><br><span class="line">  	<span class="comment">&lt;!-- 容器启动时初始化该servlet --&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="title">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="title">load-on-startup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">servlet-mapping</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>处理器中逻辑代码<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@<span class="type">Controller</span></span><br><span class="line">@<span class="type">RequestMapping</span>(value = <span class="string">"/user"</span>)</span><br><span class="line">public class <span class="type">UserController</span> &#123;</span><br><span class="line"></span><br><span class="line">	@<span class="type">RequestMapping</span>(value = <span class="string">"/login"</span>, <span class="keyword">method</span> = <span class="type">RequestMethod</span>.<span class="type">POST</span>)</span><br><span class="line">	public <span class="type">String</span> login(<span class="type">HttpServletRequest</span> req, <span class="type">User</span> user) &#123;</span><br><span class="line">		<span class="type">String</span> name = req.getParameter(<span class="string">"name"</span>);</span><br><span class="line">		<span class="type">System</span>.<span class="keyword">out</span>.println(name);</span><br><span class="line">		<span class="type">System</span>.<span class="keyword">out</span>.println(user);</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>postman发起POST请求</p>
@@ -389,7 +392,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
