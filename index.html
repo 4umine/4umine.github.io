@@ -222,6 +222,106 @@
             
               
                 
+                <a class="post-title-link" href="/2016/03/18/difference-between-javac-and-eclipse-compiler/" itemprop="url">
+                  eclipse项目迁移到Intellij idea踩到编译器的坑
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-18T14:45:49+08:00" content="2016-03-18">
+              2016-03-18
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/18/difference-between-javac-and-eclipse-compiler/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/18/difference-between-javac-and-eclipse-compiler/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>近期尝试使用idea，把公司项目从github上检出到idea中，设置一番，启动tomcat。一切看起来貌似很顺利，但是事实总比你想象的要糟糕，启动报错了。<strong>推断的类型不符合声明的范围</strong>（前提项目本身没问题，公司一直用这么一套框架来着）。在设置各种jdk版本后，依然不好使。最后想到可能是编译环境的问题，找到compile</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/idea-compiler.png" alt="idea设置编译环境"></p>
+<p>此处显示use compiler，由于肚子里还剩几个单词，当然知道这里是选择编译器。但为什么要选择编译器，默认是javac，就是当初学java的时候用window命令行javac xx编译java文件的那个编译器。说实话，到现在我也就认识这个-_-。展开选择，发现有Eclipse, 至于下面两个是啥就真不知道，管它呢。选择eclipse试试。果然，tomcat成功启动，chrome弹出项目首页。此时，心里这个爽啊！！！</p>
+<p>但是为啥javac和eclipse这两个编译器有区别呢？为啥还有这么多的java编译器呢？这个编译器是只对javac包了层壳还是真的就是两种不同的compiler？于是Google了下，在爆栈上大致了解了下<a href="http://stackoverflow.com/questions/3061654/what-is-the-difference-between-javac-and-the-eclipse-compiler" target="_blank" rel="external">what is the difference between  javac and the eclipse compiler</a><br>主要两个意思：</p>
+<blockquote>
+<ol>
+<li>eclipse实现了自己的编译器，叫Eclipse Compiler for Java（ECJ）</li>
+<li>ECJ优于javac，其中有一个就是我碰到的，如果你的代码块有error（但确实没错），javac never run，但是ECJ run fine.</li>
+</ol>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/03/01/servlet-mapping-url-pattern/" itemprop="url">
                   url-pattern中 / 和 /* 的区别
                 </a>
@@ -573,99 +673,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/19/character-encode/" itemprop="url">
-                  post/get请求中文乱码解决
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-19T17:52:03+08:00" content="2016-01-19">
-              2016-01-19
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/19/character-encode/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/19/character-encode/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>昨天给iOS同事那边调试接口，目的是保存微信用户信息。接口用户姓名始终乱码，同事说他那边已经转成UTF-8。以前每次碰到这个问题，第一反应就是看看项目中有没有CharacterEncodeFilter，且web.xml中是否忘了配置。看看项目果然是没有，于是自己写了个过滤器加上去。以为大功告成，结果还是乱码。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/19/character-encode/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -712,7 +719,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -726,7 +733,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

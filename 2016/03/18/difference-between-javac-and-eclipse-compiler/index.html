@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="java," />
+  <meta name="keywords" content="compiler,eclipse,idea,java," />
 
 
 
@@ -57,17 +57,23 @@
 
 
 
-<meta name="description" content="昨天给iOS同事那边调试接口，目的是保存微信用户信息。接口用户姓名始终乱码，同事说他那边已经转成UTF-8。以前每次碰到这个问题，第一反应就是看看项目中有没有CharacterEncodeFilter，且web.xml中是否忘了配置。看看项目果然是没有，于是自己写了个过滤器加上去。以为大功告成，结果还是乱码。">
+<meta name="description" content="近期尝试使用idea，把公司项目从github上检出到idea中，设置一番，启动tomcat。一切看起来貌似很顺利，但是事实总比你想象的要糟糕，启动报错了。推断的类型不符合声明的范围（前提项目本身没问题，公司一直用这么一套框架来着）。在设置各种jdk版本后，依然不好使。最后想到可能是编译环境的问题，找到compile
+
+此处显示use compiler，由于肚子里还剩几个单词，当然知道这里是选择编">
 <meta property="og:type" content="article">
-<meta property="og:title" content="post/get请求中文乱码解决">
-<meta property="og:url" content="http://hooau.com/2016/01/19/character-encode/index.html">
+<meta property="og:title" content="eclipse项目迁移到Intellij idea踩到编译器的坑">
+<meta property="og:url" content="http://hooau.com/2016/03/18/difference-between-javac-and-eclipse-compiler/index.html">
 <meta property="og:site_name" content="I'm hooau">
-<meta property="og:description" content="昨天给iOS同事那边调试接口，目的是保存微信用户信息。接口用户姓名始终乱码，同事说他那边已经转成UTF-8。以前每次碰到这个问题，第一反应就是看看项目中有没有CharacterEncodeFilter，且web.xml中是否忘了配置。看看项目果然是没有，于是自己写了个过滤器加上去。以为大功告成，结果还是乱码。">
-<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/tomcat-server.png">
-<meta property="og:updated_time" content="2016-03-02T08:23:14.394Z">
+<meta property="og:description" content="近期尝试使用idea，把公司项目从github上检出到idea中，设置一番，启动tomcat。一切看起来貌似很顺利，但是事实总比你想象的要糟糕，启动报错了。推断的类型不符合声明的范围（前提项目本身没问题，公司一直用这么一套框架来着）。在设置各种jdk版本后，依然不好使。最后想到可能是编译环境的问题，找到compile
+
+此处显示use compiler，由于肚子里还剩几个单词，当然知道这里是选择编">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/idea-compiler.png">
+<meta property="og:updated_time" content="2016-03-18T07:08:27.361Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="post/get请求中文乱码解决">
-<meta name="twitter:description" content="昨天给iOS同事那边调试接口，目的是保存微信用户信息。接口用户姓名始终乱码，同事说他那边已经转成UTF-8。以前每次碰到这个问题，第一反应就是看看项目中有没有CharacterEncodeFilter，且web.xml中是否忘了配置。看看项目果然是没有，于是自己写了个过滤器加上去。以为大功告成，结果还是乱码。">
+<meta name="twitter:title" content="eclipse项目迁移到Intellij idea踩到编译器的坑">
+<meta name="twitter:description" content="近期尝试使用idea，把公司项目从github上检出到idea中，设置一番，启动tomcat。一切看起来貌似很顺利，但是事实总比你想象的要糟糕，启动报错了。推断的类型不符合声明的范围（前提项目本身没问题，公司一直用这么一套框架来着）。在设置各种jdk版本后，依然不好使。最后想到可能是编译环境的问题，找到compile
+
+此处显示use compiler，由于肚子里还剩几个单词，当然知道这里是选择编">
 
 
 
@@ -85,7 +91,7 @@
   };
 </script>
 
-  <title> post/get请求中文乱码解决 | I'm hooau </title>
+  <title> eclipse项目迁移到Intellij idea踩到编译器的坑 | I'm hooau </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -215,7 +221,7 @@
             
             
               
-                post/get请求中文乱码解决
+                eclipse项目迁移到Intellij idea踩到编译器的坑
               
             
           </h1>
@@ -227,8 +233,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-19T17:52:03+08:00" content="2016-01-19">
-              2016-01-19
+            <time itemprop="dateCreated" datetime="2016-03-18T14:45:49+08:00" content="2016-03-18">
+              2016-03-18
             </time>
           </span>
 
@@ -238,8 +244,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/19/character-encode/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/19/character-encode/" itemprop="commentsCount"></span>
+                <a href="/2016/03/18/difference-between-javac-and-eclipse-compiler/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/18/difference-between-javac-and-eclipse-compiler/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -260,14 +266,16 @@
       
 
       
-        <p>昨天给iOS同事那边调试接口，目的是保存微信用户信息。接口用户姓名始终乱码，同事说他那边已经转成UTF-8。以前每次碰到这个问题，第一反应就是看看项目中有没有CharacterEncodeFilter，且web.xml中是否忘了配置。看看项目果然是没有，于是自己写了个过滤器加上去。以为大功告成，结果还是乱码。<a id="more"></a>于是找度娘找谷歌，最多就两个版本<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String</span> <span class="built_in">str</span> = <span class="keyword">new</span> <span class="keyword">String</span>(oldStr.getBytes(<span class="string">"ISO8859-1"</span>), <span class="string">"UTF-8"</span>);</span><br><span class="line">    </span><br><span class="line">request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure></p>
-<p>最后问了问同事（年会刚抽中万元现金，为什么不是我╥﹏╥…），加上自己回去调试，问题终于解决。。。</p>
-<font color="red"><strong>总结如下</strong></font>
-
-<p>post请求：设置过滤器即可</p>
-<p>get请求 ：过滤器不起作用，修改tomcat配置文件server.xml，加上</p>
-<pre><code><span class="setting">URIEncoding=<span class="value"><span class="string">"UTF-8"</span></span></span>
-</code></pre><p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/tomcat-server.png" alt="修改server.xml"></p>
+        <p>近期尝试使用idea，把公司项目从github上检出到idea中，设置一番，启动tomcat。一切看起来貌似很顺利，但是事实总比你想象的要糟糕，启动报错了。<strong>推断的类型不符合声明的范围</strong>（前提项目本身没问题，公司一直用这么一套框架来着）。在设置各种jdk版本后，依然不好使。最后想到可能是编译环境的问题，找到compile</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/idea-compiler.png" alt="idea设置编译环境"></p>
+<p>此处显示use compiler，由于肚子里还剩几个单词，当然知道这里是选择编译器。但为什么要选择编译器，默认是javac，就是当初学java的时候用window命令行javac xx编译java文件的那个编译器。说实话，到现在我也就认识这个-_-。展开选择，发现有Eclipse, 至于下面两个是啥就真不知道，管它呢。选择eclipse试试。果然，tomcat成功启动，chrome弹出项目首页。此时，心里这个爽啊！！！</p>
+<p>但是为啥javac和eclipse这两个编译器有区别呢？为啥还有这么多的java编译器呢？这个编译器是只对javac包了层壳还是真的就是两种不同的compiler？于是Google了下，在爆栈上大致了解了下<a href="http://stackoverflow.com/questions/3061654/what-is-the-difference-between-javac-and-the-eclipse-compiler" target="_blank" rel="external">what is the difference between  javac and the eclipse compiler</a><br>主要两个意思：</p>
+<blockquote>
+<ol>
+<li>eclipse实现了自己的编译器，叫Eclipse Compiler for Java（ECJ）</li>
+<li>ECJ优于javac，其中有一个就是我碰到的，如果你的代码块有error（但确实没错），javac never run，但是ECJ run fine.</li>
+</ol>
+</blockquote>
 
       
     </div>
@@ -275,6 +283,12 @@
     <footer class="post-footer">
       
         <div class="post-tags">
+          
+            <a href="/tags/compiler/" rel="tag">#compiler</a>
+          
+            <a href="/tags/eclipse/" rel="tag">#eclipse</a>
+          
+            <a href="/tags/idea/" rel="tag">#idea</a>
           
             <a href="/tags/java/" rel="tag">#java</a>
           
@@ -285,17 +299,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/08/hello-first-hexo/" rel="next" title="hello, first hexo">
-                <i class="fa fa-chevron-left"></i> hello, first hexo
+              <a href="/2016/03/01/servlet-mapping-url-pattern/" rel="next" title="url-pattern中 / 和 /* 的区别">
+                <i class="fa fa-chevron-left"></i> url-pattern中 / 和 /* 的区别
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/20/write-to-gf/" rel="prev" title="写给女票的几行代码，然而她并没懂">
-                写给女票的几行代码，然而她并没懂 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -321,8 +331,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/19/character-encode/"
-           data-title="post/get请求中文乱码解决" data-url="http://hooau.com/2016/01/19/character-encode/">
+      <div class="ds-thread" data-thread-key="2016/03/18/difference-between-javac-and-eclipse-compiler/"
+           data-title="eclipse项目迁移到Intellij idea踩到编译器的坑" data-url="http://hooau.com/2016/03/18/difference-between-javac-and-eclipse-compiler/">
       </div>
     
   </div>
