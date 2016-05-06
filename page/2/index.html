@@ -227,6 +227,121 @@
             
               
                 
+                <a class="post-title-link" href="/2016/01/28/mysql-isolation-level/" itemprop="url">
+                  MySQL隔离级别
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-28T17:10:00+08:00" content="2016-01-28">
+              2016-01-28
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/28/mysql-isolation-level/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/28/mysql-isolation-level/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>前两天线上项目在有的手机上出现bug，开始以为是兼容性问题，但我们同事手机都试了，都OK。折腾了一天，最后发现问题的根源是事务这块，于是决定回头再看看这方面内容。很长时间自己对数据库就仅限于写写sql语句，对事务逐渐淡忘，现在捡起来应该不晚。<br>网上看了些资料，便是动手重现事务隔离级别分别解决的四个问题。MySQL有四个事务隔离级别，级别从低到高：</p>
+<blockquote>
+<ul>
+<li>未提交读（read uncommitted）    允许脏读</li>
+<li>提交读（read committed）        避免脏读，有可重复读</li>
+<li>可重复读（repeatable read）     避免可重复读，有幻读</li>
+<li>串行化（serializable）          避免幻读</li>
+</ul>
+</blockquote>
+<p>我用的方法打开两个MySQL命令行，模拟两个事务，用的是还是那个经典的转账例子，假如两事务角色分别叫王大锤、老板。<br>首先来熟悉几个命令<br><strong>查看全局和会话事务隔离级别：</strong></p>
+<pre><code><span class="operator"><span class="keyword">select</span> @@<span class="keyword">global</span>.tx_isolation;</span>
+<span class="operator"><span class="keyword">select</span> @@<span class="keyword">session</span>.tx_isolation;</span>
+<span class="operator"><span class="keyword">select</span> @@tx_isolation;</span>
+</code></pre><p>MySQL默认隔离级别是repeatable-read，不可重复读，如下图</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/tranisolation.png" alt="MySQL默认隔离级别"></p>
+<p><strong>设置全局会话隔离级别：</strong></p>
+<pre><code><span class="operator"><span class="keyword">set</span> [<span class="keyword">global</span>|<span class="keyword">session</span>] <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> <span class="keyword">read</span> uncommiited;</span>
+默认（不带global或session）是为下一个事务设置隔离级别
+</code></pre><h2 id="开始演示脏读">开始演示脏读</h2><p>(1)　王大锤<br>设置事务隔离级别</p>
+<pre><code><span class="operator"><span class="keyword">set</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> <span class="keyword">read</span> uncommitted;</span>
+</code></pre><p>接着开启事务并查询工资</p>
+<pre><code>mysql&gt; start <span class="keyword">transaction</span>;
+
+mysql&gt; select * <span class="keyword">from</span> account;
+</code></pre><p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/tranwangdc.png" alt="王大锤的工资"><br>此时王大锤工资为2000<br>(2) 老板</p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/01/20/write-to-gf/" itemprop="url">
                   写给女票的几行代码，然而她并没懂
                 </a>
@@ -534,7 +649,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

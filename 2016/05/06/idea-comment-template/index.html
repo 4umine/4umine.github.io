@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="compiler,eclipse,idea,java," />
+  <meta name="keywords" content="idea," />
 
 
 
@@ -57,23 +57,23 @@
 
 
 
-<meta name="description" content="近期尝试使用idea，把公司项目从github上检出到idea中，设置一番，启动tomcat。一切看起来貌似很顺利，但是事实总比你想象的要糟糕，启动报错了。推断的类型不符合声明的范围（前提项目本身没问题，公司一直用这么一套框架来着）。在设置各种jdk版本后，依然不好使。最后想到可能是编译环境的问题，找到compile
-
-此处显示use compiler，由于肚子里还剩几个单词，当然知道这里是选择编">
+<meta name="description" content="从eclipse转到idea的阵营也有一段时间了，有个一直很不爽的的是idea的类和方法注释模板的设置没有eclipse弄起来方便。之前折腾了半天，把类的注释基本上弄完了，也比较容易，大致地说下步骤。file → settings → Editor → Code Style → File and Code Templates，如下图：接着点Includes，如下图：设置File Header，比如">
 <meta property="og:type" content="article">
-<meta property="og:title" content="eclipse项目迁移到Intellij idea踩到编译器的坑">
-<meta property="og:url" content="http://hooau.com/2016/03/18/difference-between-javac-and-eclipse-compiler/index.html">
+<meta property="og:title" content="idea类和方法注释模板">
+<meta property="og:url" content="http://hooau.com/2016/05/06/idea-comment-template/index.html">
 <meta property="og:site_name" content="I'm hooau">
-<meta property="og:description" content="近期尝试使用idea，把公司项目从github上检出到idea中，设置一番，启动tomcat。一切看起来貌似很顺利，但是事实总比你想象的要糟糕，启动报错了。推断的类型不符合声明的范围（前提项目本身没问题，公司一直用这么一套框架来着）。在设置各种jdk版本后，依然不好使。最后想到可能是编译环境的问题，找到compile
-
-此处显示use compiler，由于肚子里还剩几个单词，当然知道这里是选择编">
-<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/idea-compiler.png">
-<meta property="og:updated_time" content="2016-03-18T07:08:27.361Z">
+<meta property="og:description" content="从eclipse转到idea的阵营也有一段时间了，有个一直很不爽的的是idea的类和方法注释模板的设置没有eclipse弄起来方便。之前折腾了半天，把类的注释基本上弄完了，也比较容易，大致地说下步骤。file → settings → Editor → Code Style → File and Code Templates，如下图：接着点Includes，如下图：设置File Header，比如">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/idea_class.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/idea_method.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/idea_class01.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/idea_addLiveGroup2.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/idea_addLive2.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/idea_addLive3.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/idea_mct.png">
+<meta property="og:updated_time" content="2016-05-06T06:38:01.194Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="eclipse项目迁移到Intellij idea踩到编译器的坑">
-<meta name="twitter:description" content="近期尝试使用idea，把公司项目从github上检出到idea中，设置一番，启动tomcat。一切看起来貌似很顺利，但是事实总比你想象的要糟糕，启动报错了。推断的类型不符合声明的范围（前提项目本身没问题，公司一直用这么一套框架来着）。在设置各种jdk版本后，依然不好使。最后想到可能是编译环境的问题，找到compile
-
-此处显示use compiler，由于肚子里还剩几个单词，当然知道这里是选择编">
+<meta name="twitter:title" content="idea类和方法注释模板">
+<meta name="twitter:description" content="从eclipse转到idea的阵营也有一段时间了，有个一直很不爽的的是idea的类和方法注释模板的设置没有eclipse弄起来方便。之前折腾了半天，把类的注释基本上弄完了，也比较容易，大致地说下步骤。file → settings → Editor → Code Style → File and Code Templates，如下图：接着点Includes，如下图：设置File Header，比如">
 
 
 
@@ -91,7 +91,7 @@
   };
 </script>
 
-  <title> eclipse项目迁移到Intellij idea踩到编译器的坑 | I'm hooau </title>
+  <title> idea类和方法注释模板 | I'm hooau </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -221,7 +221,7 @@
             
             
               
-                eclipse项目迁移到Intellij idea踩到编译器的坑
+                idea类和方法注释模板
               
             
           </h1>
@@ -233,8 +233,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-18T14:45:49+08:00" content="2016-03-18">
-              2016-03-18
+            <time itemprop="dateCreated" datetime="2016-05-06T14:32:31+08:00" content="2016-05-06">
+              2016-05-06
             </time>
           </span>
 
@@ -244,8 +244,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/18/difference-between-javac-and-eclipse-compiler/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/18/difference-between-javac-and-eclipse-compiler/" itemprop="commentsCount"></span>
+                <a href="/2016/05/06/idea-comment-template/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/06/idea-comment-template/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -266,16 +266,8 @@
       
 
       
-        <p>近期尝试使用idea，把公司项目从github上检出到idea中，设置一番，启动tomcat。一切看起来貌似很顺利，但是事实总比你想象的要糟糕，启动报错了。<strong>推断的类型不符合声明的范围</strong>（前提项目本身没问题，公司一直用这么一套框架来着）。在设置各种jdk版本后，依然不好使。最后想到可能是编译环境的问题，找到compile</p>
-<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/idea-compiler.png" alt="idea设置编译环境"></p>
-<p>此处显示use compiler，由于肚子里还剩几个单词，当然知道这里是选择编译器。但为什么要选择编译器，默认是javac，就是当初学java的时候用window命令行javac xx编译java文件的那个编译器。说实话，到现在我也就认识这个-_-。展开选择，发现有Eclipse, 至于下面两个是啥就真不知道，管它呢。选择eclipse试试。果然，tomcat成功启动，chrome弹出项目首页。此时，心里这个爽啊！！！</p>
-<p>但是为啥javac和eclipse这两个编译器有区别呢？为啥还有这么多的java编译器呢？这个编译器是只对javac包了层壳还是真的就是两种不同的compiler？于是Google了下，在爆栈上大致了解了下<a href="http://stackoverflow.com/questions/3061654/what-is-the-difference-between-javac-and-the-eclipse-compiler" target="_blank" rel="external">what is the difference between  javac and the eclipse compiler</a><br>主要两个意思：</p>
-<blockquote>
-<ol>
-<li>eclipse实现了自己的编译器，叫Eclipse Compiler for Java（ECJ）</li>
-<li>ECJ优于javac，其中有一个就是我碰到的，如果你的代码块有error（但确实没错），javac never run，但是ECJ run fine.</li>
-</ol>
-</blockquote>
+        <p>从eclipse转到idea的阵营也有一段时间了，有个一直很不爽的的是idea的类和方法注释模板的设置没有eclipse弄起来方便。之前折腾了半天，把类的注释基本上弄完了，也比较容易，大致地说下步骤。<br>file → settings → Editor → Code Style → File and Code Templates，如下图：<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/idea_class.png" alt="类注释"><br>接着点Includes，如下图：<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/idea_method.png" alt="idea类注释"><br>设置File Header，比如像我这样。搞定后在class中就可以愉快地/**了：<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/idea_class01.png" alt="类注释"></p>
+<p>但是问题来了，方法的注释模板我是真没找到。最近写代码方法没注释实则不爽，于是开始拼命地Google，最后找到一种凑合的方法，先说说步骤吧。file → settings → Editor → Code Style → Live Templates<br>点击右边’+’，选择Templates Group，即添加个自己的模板组，如下图：<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/idea_addLiveGroup2.png" alt="新增模板组"><br>找到刚刚新建的分组，选中后继续点‘+’，选择Live Templates，如下图：<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/idea_addLive2.png" alt="新建模板"><br>模板的你可以模仿的我的写法，但是这里要注意个问题，需要edit variables，如下图：<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/idea_addLive3.png" alt="edit variables"><br>我这个模板的快捷键是mct，新建个方法试试：<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/idea_mct.png" alt="方法注释"><br>到此方法的注释模板搞定了，但总觉得这种方法很别扭，不是真正意义上的method template，将就用着吧！<br>本文参考<a href="http://blog.sina.com.cn/s/blog_4c4195e70102wh7e.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_4c4195e70102wh7e.html</a></p>
 
       
     </div>
@@ -284,13 +276,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/compiler/" rel="tag">#compiler</a>
-          
-            <a href="/tags/eclipse/" rel="tag">#eclipse</a>
-          
             <a href="/tags/idea/" rel="tag">#idea</a>
-          
-            <a href="/tags/java/" rel="tag">#java</a>
           
         </div>
       
@@ -299,17 +285,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/01/servlet-mapping-url-pattern/" rel="next" title="url-pattern中 / 和 /* 的区别">
-                <i class="fa fa-chevron-left"></i> url-pattern中 / 和 /* 的区别
+              <a href="/2016/03/22/bug-with-cookie/" rel="next" title="Cookie 那点事">
+                <i class="fa fa-chevron-left"></i> Cookie 那点事
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/22/bug-with-cookie/" rel="prev" title="Cookie 那点事">
-                Cookie 那点事 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -335,8 +317,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/18/difference-between-javac-and-eclipse-compiler/"
-           data-title="eclipse项目迁移到Intellij idea踩到编译器的坑" data-url="http://hooau.com/2016/03/18/difference-between-javac-and-eclipse-compiler/">
+      <div class="ds-thread" data-thread-key="2016/05/06/idea-comment-template/"
+           data-title="idea类和方法注释模板" data-url="http://hooau.com/2016/05/06/idea-comment-template/">
       </div>
     
   </div>
