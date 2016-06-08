@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="java cookie," />
+  <meta name="keywords" content="idea JRebel," />
 
 
 
@@ -57,16 +57,34 @@
 
 
 
-<meta name="description" content="今天在给以前的项目做迭代发现代码中的小问题，先看代码12345678HttpServletRequest request = ContextHolderUtils.getRequest();String cookieCityName = ConstantHelper.COOKIE_CITY_NAME;CookieUtils.setCookie(cookieCityName,        requ">
+<meta name="description" content="大家都是java程序员，每次修改代码都要重新部署或者重启tomcat带来的痛想必都经历过。虽然说idea本身支持热部署，但是效果不咋地，动不动就hotspot failed。所以谷歌折腾了下JRebel，效果还不错。简单步骤如下：
+1. 下载JRebelJRebel破解版链接（为啥要破解的，你懂的）
+2. idea中安装JRebel插件安装完JRebel插件记得重启idea
+3. 替换文件打开刚刚">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cookie 那点事">
-<meta property="og:url" content="http://hooau.com/2016/03/22/bug-with-cookie/index.html">
+<meta property="og:title" content="IntelliJ IDEA 的java热部署插件JRebel的使用">
+<meta property="og:url" content="http://hooau.com/2016/06/08/idea-JRebel/index.html">
 <meta property="og:site_name" content="I'm hooau">
-<meta property="og:description" content="今天在给以前的项目做迭代发现代码中的小问题，先看代码12345678HttpServletRequest request = ContextHolderUtils.getRequest();String cookieCityName = ConstantHelper.COOKIE_CITY_NAME;CookieUtils.setCookie(cookieCityName,        requ">
-<meta property="og:updated_time" content="2016-03-22T09:49:59.377Z">
+<meta property="og:description" content="大家都是java程序员，每次修改代码都要重新部署或者重启tomcat带来的痛想必都经历过。虽然说idea本身支持热部署，但是效果不咋地，动不动就hotspot failed。所以谷歌折腾了下JRebel，效果还不错。简单步骤如下：
+1. 下载JRebelJRebel破解版链接（为啥要破解的，你懂的）
+2. idea中安装JRebel插件安装完JRebel插件记得重启idea
+3. 替换文件打开刚刚">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/idea_JRebel.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_cracker.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_location.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel6_location.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_lic.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_valid.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_advanced.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_boot.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_VM.png">
+<meta property="og:updated_time" content="2016-06-08T03:09:54.683Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cookie 那点事">
-<meta name="twitter:description" content="今天在给以前的项目做迭代发现代码中的小问题，先看代码12345678HttpServletRequest request = ContextHolderUtils.getRequest();String cookieCityName = ConstantHelper.COOKIE_CITY_NAME;CookieUtils.setCookie(cookieCityName,        requ">
+<meta name="twitter:title" content="IntelliJ IDEA 的java热部署插件JRebel的使用">
+<meta name="twitter:description" content="大家都是java程序员，每次修改代码都要重新部署或者重启tomcat带来的痛想必都经历过。虽然说idea本身支持热部署，但是效果不咋地，动不动就hotspot failed。所以谷歌折腾了下JRebel，效果还不错。简单步骤如下：
+1. 下载JRebelJRebel破解版链接（为啥要破解的，你懂的）
+2. idea中安装JRebel插件安装完JRebel插件记得重启idea
+3. 替换文件打开刚刚">
 
 
 
@@ -84,7 +102,7 @@
   };
 </script>
 
-  <title> Cookie 那点事 | I'm hooau </title>
+  <title> IntelliJ IDEA 的java热部署插件JRebel的使用 | I'm hooau </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -214,7 +232,7 @@
             
             
               
-                Cookie 那点事
+                IntelliJ IDEA 的java热部署插件JRebel的使用
               
             
           </h1>
@@ -226,8 +244,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-22T17:31:43+08:00" content="2016-03-22">
-              2016-03-22
+            <time itemprop="dateCreated" datetime="2016-06-08T10:51:11+08:00" content="2016-06-08">
+              2016-06-08
             </time>
           </span>
 
@@ -237,8 +255,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/22/bug-with-cookie/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/22/bug-with-cookie/" itemprop="commentsCount"></span>
+                <a href="/2016/06/08/idea-JRebel/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/08/idea-JRebel/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -259,10 +277,18 @@
       
 
       
-        <p>今天在给以前的项目做迭代发现代码中的小问题，先看代码<br><figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HttpServletRequest <span class="built_in">request</span> = ContextHolderUtils.getRequest();</span><br><span class="line"><span class="built_in">String</span> cookieCityName = ConstantHelper.COOKIE_CITY_NAME;</span><br><span class="line">CookieUtils.setCookie(cookieCityName,</span><br><span class="line">        <span class="built_in">request</span>.getParameter(<span class="string">"cityValue"</span>),</span><br><span class="line">        ConstantHelper.COOKIE_CITY_AGE,</span><br><span class="line">        <span class="literal">true</span>,</span><br><span class="line">        <span class="built_in">request</span>, ContextHolderUtils.getResponse());</span><br><span class="line"><span class="built_in">String</span> city = CookieUtils.getCookieValue(cookieCityName, <span class="built_in">request</span>);</span><br></pre></td></tr></table></figure></p>
-<p>代码的意思就是先存cookie，再取cookie。那么问题来了，从request中取cookie能取到值么？在上面代码样例中肯定是不能的，通过response设置cookie到客户端，前提是response要提交，也就是浏览器要成功收到响应。在这个代码中，设置cookie的同时又去获取cookie值，city永远是null（除非第二次访问这个方法）。</p>
-<p>为什么我对这段代码这么敏感，因为之前自己也犯这样的错，而且这个错还特别不好调试，因为它昙花一现。比如写完代码开始打开浏览器访问，虽然第一次city是为null。但一般这时候你不会打断点去调试，一心想着页面能不能正常显示（人的想象总是美好的）。接着你就要调试调试，再次访问发现一切又正常了，city也有值了。于是你就说eclipse抽风了，不断调试，发现没啥问题，可能人品不好吧，你只能这么说。某一天，cookie被清，问题重现了，准备调试了，又tm正常了！然后，你疯了。</p>
-<p>吃一堑，长一智。</p>
+        <p>大家都是java程序员，每次修改代码都要重新部署或者重启tomcat带来的痛想必都经历过。虽然说idea本身支持热部署，但是效果不咋地，动不动就hotspot failed。所以谷歌折腾了下JRebel，效果还不错。简单步骤如下：</p>
+<h2 id="1-_下载JRebel">1. 下载JRebel</h2><p><a href="http://download.csdn.net/detail/cock333/9451141" target="_blank" rel="external">JRebel破解版链接（为啥要破解的，你懂的）</a></p>
+<h2 id="2-_idea中安装JRebel插件">2. idea中安装JRebel插件</h2><p>安装完JRebel插件记得重启idea<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/idea_JRebel.png" alt="idea安装JRebel插件"></p>
+<h2 id="3-_替换文件">3. 替换文件</h2><p>打开刚刚下载的JRebel破解版，有如下目录<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_cracker.png" alt="此处输入图片的描述"><br><strong>关键的三步</strong></p>
+<ul>
+<li>复制jrebel/jrebel.jar到<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_location.png" alt="替换JRebel.jar"></li>
+<li>复制jrebel6/jrebel.jar到<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel6_location.png" alt="替换JRebel.jar"></li>
+<li>复制jrebel.lic到<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_lic.png" alt="赋值jrebel.lic"></li>
+</ul>
+<h2 id="4-_idea设置">4. idea设置</h2><p>上述步骤都完成后，重启idea，打开settings-JRebel，显示valid表示安装成功<img src="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_valid.png" alt="安装成功"><br>然后点击JRebel-Advanced，勾选如下<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_advanced.png" alt="勾选JRebel6 agent"></p>
+<h2 id="5-_通过JRebel启动项目">5. 通过JRebel启动项目</h2><p>以后项目每次通过JRebel启动<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_boot.png" alt="JRebel启动项目"></p>
+<h2 id="注意">注意</h2><p>启动过程中可能会出现outOfMemoy: perm space，设置下tomcat VM Options<br>-XX:MaxPermSize=1024m<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_VM.png" alt="设置VM options"></p>
 
       
     </div>
@@ -271,7 +297,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java-cookie/" rel="tag">#java cookie</a>
+            <a href="/tags/idea-JRebel/" rel="tag">#idea JRebel</a>
           
         </div>
       
@@ -280,17 +306,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/18/difference-between-javac-and-eclipse-compiler/" rel="next" title="eclipse项目迁移到Intellij idea踩到编译器的坑">
-                <i class="fa fa-chevron-left"></i> eclipse项目迁移到Intellij idea踩到编译器的坑
+              <a href="/2016/05/06/idea-comment-template/" rel="next" title="idea类和方法注释模板">
+                <i class="fa fa-chevron-left"></i> idea类和方法注释模板
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/06/idea-comment-template/" rel="prev" title="idea类和方法注释模板">
-                idea类和方法注释模板 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -316,8 +338,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/22/bug-with-cookie/"
-           data-title="Cookie 那点事" data-url="http://hooau.com/2016/03/22/bug-with-cookie/">
+      <div class="ds-thread" data-thread-key="2016/06/08/idea-JRebel/"
+           data-title="IntelliJ IDEA 的java热部署插件JRebel的使用" data-url="http://hooau.com/2016/06/08/idea-JRebel/">
       </div>
     
   </div>
@@ -434,7 +456,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_下载JRebel"><span class="nav-number">1.</span> <span class="nav-text">1. 下载JRebel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_idea中安装JRebel插件"><span class="nav-number">2.</span> <span class="nav-text">2. idea中安装JRebel插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_替换文件"><span class="nav-number">3.</span> <span class="nav-text">3. 替换文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_idea设置"><span class="nav-number">4.</span> <span class="nav-text">4. idea设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-_通过JRebel启动项目"><span class="nav-number">5.</span> <span class="nav-text">5. 通过JRebel启动项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">6.</span> <span class="nav-text">注意</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

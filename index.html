@@ -222,6 +222,108 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/08/idea-JRebel/" itemprop="url">
+                  IntelliJ IDEA 的java热部署插件JRebel的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-08T10:51:11+08:00" content="2016-06-08">
+              2016-06-08
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/08/idea-JRebel/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/08/idea-JRebel/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>大家都是java程序员，每次修改代码都要重新部署或者重启tomcat带来的痛想必都经历过。虽然说idea本身支持热部署，但是效果不咋地，动不动就hotspot failed。所以谷歌折腾了下JRebel，效果还不错。简单步骤如下：</p>
+<h2 id="1-_下载JRebel">1. 下载JRebel</h2><p><a href="http://download.csdn.net/detail/cock333/9451141" target="_blank" rel="external">JRebel破解版链接（为啥要破解的，你懂的）</a></p>
+<h2 id="2-_idea中安装JRebel插件">2. idea中安装JRebel插件</h2><p>安装完JRebel插件记得重启idea<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/idea_JRebel.png" alt="idea安装JRebel插件"></p>
+<h2 id="3-_替换文件">3. 替换文件</h2><p>打开刚刚下载的JRebel破解版，有如下目录<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_cracker.png" alt="此处输入图片的描述"><br><strong>关键的三步</strong></p>
+<ul>
+<li>复制jrebel/jrebel.jar到<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_location.png" alt="替换JRebel.jar"></li>
+<li>复制jrebel6/jrebel.jar到<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel6_location.png" alt="替换JRebel.jar"></li>
+<li>复制jrebel.lic到<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_lic.png" alt="赋值jrebel.lic"></li>
+</ul>
+<h2 id="4-_idea设置">4. idea设置</h2><p>上述步骤都完成后，重启idea，打开settings-JRebel，显示valid表示安装成功<img src="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_valid.png" alt="安装成功"><br>然后点击JRebel-Advanced，勾选如下<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_advanced.png" alt="勾选JRebel6 agent"></p>
+<h2 id="5-_通过JRebel启动项目">5. 通过JRebel启动项目</h2><p>以后项目每次通过JRebel启动<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_boot.png" alt="JRebel启动项目"></p>
+<h2 id="注意">注意</h2><p>启动过程中可能会出现outOfMemoy: perm space，设置下tomcat VM Options<br>-XX:MaxPermSize=1024m<br><img src="http://7xoz4l.com1.z0.glb.clouddn.com/JRebel_VM.png" alt="设置VM options"></p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/06/idea-comment-template/" itemprop="url">
                   idea类和方法注释模板
                 </a>
@@ -589,104 +691,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/29/mysql-engines/" itemprop="url">
-                  MySQL数据库——存储引擎
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-29T11:12:02+08:00" content="2016-01-29">
-              2016-01-29
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/29/mysql-engines/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/29/mysql-engines/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>平常接触数据库就写写sql，对事务都慢慢淡忘了，现在打算温习下。再看了一些资料后就动手实现脏读、不可重复读和幻读。我们知道脏读（read-uncommitted），顾名思义就是读了未提交的，意思就是一个事务读取了另一个还没提交事务的数据。但在重现脏读问题的时候就掉进坑了，就是该事务的隔离级别为isolation read uncommitted时，无论如何都读取不到另一个事务（没有提交）中修改的数据。顿时丈二的和尚摸不到头脑，一时不知道是哪里出了问题。于是Google吧，mysql transaction not working，立马反应过来是数据库引擎搞得鬼，<a href="http://stackoverflow.com/questions/19163393/transaction-not-working-in-mysql" target="_blank" rel="external">爆栈上的答案</a>，再看看本地数据的引擎</p>
-<pre><code>mysql&gt; show engines<span class="comment">;</span>
-</code></pre><p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/tranengines.png" alt="mysql存储引擎"><br>到这里问题一目了然，MySQL默认存储引擎为MyISAM，但是我们可以发现这些引擎中只有InnoDB支持事务。而自己在建表的时候只是简单的create table…并没有设置其它的选项。于是在navicat中设置下表的engine</p>
-<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/transetInnoDB.png" alt="设置engine为InnoDB"><br>然后就没有然后了，开始愉快的read uncommitted去了。<br>最后在stackoverflow上还发现个问题</p>
-<blockquote>
-<p>How can I check MySQL engine type for a specific database via mysql query?</p>
-</blockquote>
-<p>答案是：<a href="http://stackoverflow.com/questions/6829948/how-can-i-check-mysql-engine-type-for-a-specific-database" target="_blank" rel="external">MySQL中数据库是没有引擎类型的，只有表才有</a></p>
-
-          
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -733,7 +737,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -747,7 +751,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
