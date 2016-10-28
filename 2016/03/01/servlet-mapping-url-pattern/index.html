@@ -1,4 +1,110 @@
-<!DOCTYPE html><html lang="zh-Hans"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="The more I know，the more I Don't know."><title>url-pattern中 / 和 /* 的区别 | 不会骑车的码农不是好段子手</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.2016070605"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.2.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">url-pattern中 / 和 /* 的区别</h1><a id="logo" href="/.">不会骑车的码农不是好段子手</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/categories/code/"><i class="fa fa-code"> 代码笔记</i></a><a href="/categories/bike/"><i class="fa fa-bicycle"> 单车旅行</i></a><a href="/about/"><i class="fa fa-user"> 关于我</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">url-pattern中 / 和 /* 的区别</h1><div class="post-meta">Mar 1, 2016<span> | </span><span class="category"><a href="/categories/code/">code</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2016/03/01/servlet-mapping-url-pattern/" href="/2016/03/01/servlet-mapping-url-pattern/#comments" class="ds-thread-count"></a><div class="post-content"><p>首先让我意识到这两者差别的是在学习springmvc过程中，在web.xml中配置DispatcherServlet映射路径时碰到的，先看看引起这个问题的场景。</p>
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>url-pattern中 / 和 /* 的区别 | 码农与单车</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="hooau">
+    
+
+    
+    <meta name="description" content="首先让我意识到这两者差别的是在学习springmvc过程中，在web.xml中配置DispatcherServlet映射路径时碰到的，先看看引起这个问题的场景。
+场景web.xml中DispatcherServlet配置123456789101112131415&amp;lt;!-- 前端控制器配置 --&amp;gt;&amp;lt;servlet&amp;gt;    &amp;lt;servlet-name&amp;gt;springmv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="url-pattern中 / 和 /* 的区别">
+<meta property="og:url" content="http://coderbike.com/2016/03/01/servlet-mapping-url-pattern/index.html">
+<meta property="og:site_name" content="码农与单车">
+<meta property="og:description" content="首先让我意识到这两者差别的是在学习springmvc过程中，在web.xml中配置DispatcherServlet映射路径时碰到的，先看看引起这个问题的场景。
+场景web.xml中DispatcherServlet配置123456789101112131415&amp;lt;!-- 前端控制器配置 --&amp;gt;&amp;lt;servlet&amp;gt;    &amp;lt;servlet-name&amp;gt;springmv">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/springmv-postman.png">
+<meta property="og:updated_time" content="2016-07-04T08:27:48.995Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="url-pattern中 / 和 /* 的区别">
+<meta name="twitter:description" content="首先让我意识到这两者差别的是在学习springmvc过程中，在web.xml中配置DispatcherServlet映射路径时碰到的，先看看引起这个问题的场景。
+场景web.xml中DispatcherServlet配置123456789101112131415&amp;lt;!-- 前端控制器配置 --&amp;gt;&amp;lt;servlet&amp;gt;    &amp;lt;servlet-name&amp;gt;springmv">
+
+    
+    <link rel="alternative" href="/atom.xml" title="码农与单车" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="码农与单车" title="码农与单车"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="码农与单车">码农与单车</a></h1>
+				<h2 class="blog-motto">一个热爱骑车的Java程序猿，后面跟着一条哈士奇</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于我</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:coderbike.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/01/servlet-mapping-url-pattern/" title="url-pattern中 / 和 /* 的区别" itemprop="url">url-pattern中 / 和 /* 的区别</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="hooau" target="_blank" itemprop="author">hooau</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-01T06:38:47.000Z" itemprop="datePublished"> 發表於 2016-03-01</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#场景"><span class="toc-number">1.</span> <span class="toc-text">场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
+		
+		</div>
+		
+		<p>首先让我意识到这两者差别的是在学习springmvc过程中，在web.xml中配置DispatcherServlet映射路径时碰到的，先看看引起这个问题的场景。</p>
 <h3 id="场景">场景</h3><p>web.xml中DispatcherServlet配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 前端控制器配置 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="title">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="title">servlet-class</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="title">init-param</span>&gt;</span></span><br><span class="line">  	    <span class="tag">&lt;<span class="title">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="title">param-name</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="title">param-value</span>&gt;</span>classpath:config/springmvc-servlet.xml<span class="tag">&lt;/<span class="title">param-value</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="title">init-param</span>&gt;</span></span><br><span class="line">  	<span class="comment">&lt;!-- 容器启动时初始化该servlet --&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="title">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="title">load-on-startup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">servlet-mapping</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>处理器中逻辑代码<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@<span class="type">Controller</span></span><br><span class="line">@<span class="type">RequestMapping</span>(value = <span class="string">"/user"</span>)</span><br><span class="line">public class <span class="type">UserController</span> &#123;</span><br><span class="line"></span><br><span class="line">	@<span class="type">RequestMapping</span>(value = <span class="string">"/login"</span>, <span class="keyword">method</span> = <span class="type">RequestMethod</span>.<span class="type">POST</span>)</span><br><span class="line">	public <span class="type">String</span> login(<span class="type">HttpServletRequest</span> req, <span class="type">User</span> user) &#123;</span><br><span class="line">		<span class="type">String</span> name = req.getParameter(<span class="string">"name"</span>);</span><br><span class="line">		<span class="type">System</span>.<span class="keyword">out</span>.println(name);</span><br><span class="line">		<span class="type">System</span>.<span class="keyword">out</span>.println(user);</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>postman发起POST请求</p>
@@ -10,20 +116,473 @@
 <li>/* 能匹配所有请求URL，/ 不匹配 .jsp 等后缀映射规则</li>
 <li>当映射规则为 /* 时，最后返回xx.jsp也经过DispatcherServlet，它又会去找相对应的处理器，这也是控制台打印noHandlerFound，也就导致了404错误，页面更别想看到。当改成 / 后，servlet不会匹配到.jsp的URI，当然就能正常返回页面了</li>
 </ol>
-</div><script type="text/javascript" src="/js/share.js?v=0.0.2016070605" async></script><a data-url="http://coderbike.com/2016/03/01/servlet-mapping-url-pattern/" data-id="cisrmliwy000l2gvhp2nbnuve" class="article-share-link">分享到</a><div class="tags"><a href="/tags/java/">java</a><a href="/tags/springmvc/">springmvc</a><a href="/tags/url-pattern/">url-pattern</a></div><div class="post-nav"><a href="/2016/03/18/difference-between-javac-and-eclipse-compiler/" class="pre">eclipse项目迁移到Intellij idea踩到编译器的坑</a><a href="/2016/01/29/mysql-engines/" class="next">MySQL数据库——存储引擎</a></div><div data-thread-key="2016/03/01/servlet-mapping-url-pattern/" data-title="url-pattern中 / 和 /* 的区别" data-url="http://coderbike.com/2016/03/01/servlet-mapping-url-pattern/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2016/03/01/servlet-mapping-url-pattern/" data-title="url-pattern中 / 和 /* 的区别" data-url="http://coderbike.com/2016/03/01/servlet-mapping-url-pattern/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://coderbike.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/bike/">bike</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/code/">code</a><span class="category-list-count">12</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/数据库/" style="font-size: 15px;">数据库</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/设计模式/" style="font-size: 15px;">设计模式</a> <a href="/tags/单车/" style="font-size: 15px;">单车</a> <a href="/tags/旅行/" style="font-size: 15px;">旅行</a> <a href="/tags/springmvc/" style="font-size: 15px;">springmvc</a> <a href="/tags/url-pattern/" style="font-size: 15px;">url-pattern</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/生活/" style="font-size: 15px;">生活</a> <a href="/tags/事务/" style="font-size: 15px;">事务</a> <a href="/tags/存储引擎/" style="font-size: 15px;">存储引擎</a> <a href="/tags/UML/" style="font-size: 15px;">UML</a> <a href="/tags/idea/" style="font-size: 15px;">idea</a> <a href="/tags/idea-JRebel/" style="font-size: 15px;">idea JRebel</a> <a href="/tags/eclipse/" style="font-size: 15px;">eclipse</a> <a href="/tags/compiler/" style="font-size: 15px;">compiler</a> <a href="/tags/cookie/" style="font-size: 15px;">cookie</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/06/simple-factory/">简单工厂模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/learning-startuml/">初学StartUml</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/04/shengsi-island/">嵊泗小浪</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/08/idea-JRebel/">IntelliJ IDEA 的java热部署插件JRebel的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/06/idea-comment-template/">idea类和方法注释模板</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/22/bug-with-cookie/">Cookie 那点事</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/18/difference-between-javac-and-eclipse-compiler/">eclipse项目迁移到Intellij idea踩到编译器的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/01/servlet-mapping-url-pattern/">url-pattern中 / 和 /* 的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/mysql-engines/">MySQL数据库——存储引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/28/mysql-isolation-level/">MySQL隔离级别</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.ruanyifeng.com/blog/" title="阮一峰" target="_blank">阮一峰</a><ul></ul><a href="http://coolshell.cn/" title="酷壳" target="_blank">酷壳</a><ul></ul><a href="http://calvin1978.blogcn.com/" title="江南白衣" target="_blank">江南白衣</a><ul></ul><a href="http://www.yinwang.org" title="王垠" target="_blank">王垠</a><ul></ul><a href="http://www.liaoxuefeng.com/" title="廖雪峰" target="_blank">廖雪峰</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">不会骑车的码农不是好段子手.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.2016070605" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.2016070605" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.2016070605"><script>var duoshuoQuery = {short_name:'hooau'};
-(function() {
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/code/">code</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/java/">java</a><a href="/tags/springmvc/">springmvc</a><a href="/tags/url-pattern/">url-pattern</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://coderbike.com/2016/03/01/servlet-mapping-url-pattern/" data-title="url-pattern中 / 和 /* 的区别 | 码农与单车" data-tsina="1683126732" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/03/18/difference-between-javac-and-eclipse-compiler/" title="eclipse项目迁移到Intellij idea踩到编译器的坑">
+  <strong>上一篇：</strong><br/>
+  <span>
+  eclipse项目迁移到Intellij idea踩到编译器的坑</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/01/29/mysql-engines/"  title="MySQL数据库——存储引擎">
+ <strong>下一篇：</strong><br/> 
+ <span>MySQL数据库——存储引擎
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/03/01/servlet-mapping-url-pattern/" data-title="url-pattern中 / 和 /* 的区别" data-url="http://coderbike.com/2016/03/01/servlet-mapping-url-pattern/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#场景"><span class="toc-number">1.</span> <span class="toc-text">场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分類</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/bike/" title="bike">bike<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/code/" title="code">code<sup>12</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">標簽</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/java/" title="java">java<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MySQL/" title="MySQL">MySQL<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/事务/" title="事务">事务<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/存储引擎/" title="存储引擎">存储引擎<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/idea/" title="idea">idea<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/springmvc/" title="springmvc">springmvc<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/url-pattern/" title="url-pattern">url-pattern<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cookie/" title="cookie">cookie<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/生活/" title="生活">生活<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/设计模式/" title="设计模式">设计模式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单车/" title="单车">单车<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/UML/" title="UML">UML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/旅行/" title="旅行">旅行<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/idea-JRebel/" title="idea JRebel">idea JRebel<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/eclipse/" title="eclipse">eclipse<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/compiler/" title="compiler">compiler<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/数据库/" title="数据库">数据库<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情鏈接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.ruanyifeng.com/blog/" target="_blank" title="阮一峰">阮一峰</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://coolshell.cn/" target="_blank" title="酷壳">酷壳</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://calvin1978.blogcn.com/" target="_blank" title="江南白衣">江南白衣</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.yinwang.org" target="_blank" title="王垠">王垠</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.liaoxuefeng.com/" target="_blank" title="廖雪峰">廖雪峰</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 不积跬步，无以至千里 <br/>
+			不积小流，无以成江海</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1683126732" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/4umine" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/5824152" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:imant@outlook.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="hooau">hooau</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"imant"};
+  (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.src = '//static.duoshuo.com/embed.js';
     ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-        || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script><script>var _hmt = _hmt || [];
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?f669407e4a5cc9732c8f714c200d23ab";
-  var s = document.getElementsByTagName("script")[0];
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
-  })();
-</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.2016070605"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.2016070605"></script></div></body></html>
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
