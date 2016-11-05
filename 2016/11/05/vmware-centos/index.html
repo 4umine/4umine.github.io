@@ -4,26 +4,50 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Cookie 那点事 | 码农与单车</title>
+    <title>vmware 安装 centos7 | 码农与单车</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="hooau">
     
 
-    
-    <meta name="description" content="今天在给以前的项目做迭代发现代码中的小问题，先看代码
-12345678HttpServletRequest request = ContextHolderUtils.getRequest();String cookieCityName = ConstantHelper.COOKIE_CITY_NAME;CookieUtils.setCookie(cookieCityName,        req">
+    <meta name="keywords" content="vmware, centos7, vmware安装centos7">
+    <meta name="description" content="最近在看《大型网站技术架构》这本书，有一种相见恨晚的感觉。虽然现在的自己对网站架构概念还比较模糊，但是平常逛大牛博客对一些名词也有所耳闻，例如分布式系统、负载均衡、反向代理和消息队列等等。所以脑子中总会冒一些问题，到底啥事分布式，服务器为啥要集群，网站大了以后要怎么扩展等系列问题。很幸运的是，这本书开头就讲了大型网站架构演化的过程，有种茅塞顿开之感。既然有心向之，那就do it!第一步安装linu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cookie 那点事">
-<meta property="og:url" content="http://coderbike.com/2016/03/22/bug-with-cookie/index.html">
+<meta property="og:title" content="vmware 安装 centos7">
+<meta property="og:url" content="http://coderbike.com/2016/11/05/vmware-centos/index.html">
 <meta property="og:site_name" content="码农与单车">
-<meta property="og:description" content="今天在给以前的项目做迭代发现代码中的小问题，先看代码
-12345678HttpServletRequest request = ContextHolderUtils.getRequest();String cookieCityName = ConstantHelper.COOKIE_CITY_NAME;CookieUtils.setCookie(cookieCityName,        req">
-<meta property="og:updated_time" content="2016-11-05T10:32:36.076Z">
+<meta property="og:description" content="最近在看《大型网站技术架构》这本书，有一种相见恨晚的感觉。虽然现在的自己对网站架构概念还比较模糊，但是平常逛大牛博客对一些名词也有所耳闻，例如分布式系统、负载均衡、反向代理和消息队列等等。所以脑子中总会冒一些问题，到底啥事分布式，服务器为啥要集群，网站大了以后要怎么扩展等系列问题。很幸运的是，这本书开头就讲了大型网站架构演化的过程，有种茅塞顿开之感。既然有心向之，那就do it!第一步安装linu">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/typical.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/next-install.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/select-linux-centos64.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/install-location.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-disk-capacity.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-hardware.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-iso.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/select-centos.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/select-language.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-date.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-install-source.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/select-env.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-zone.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-boot.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-boot-file.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-swap.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-home.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-root.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/zone-ok.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/accept-change.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/net-host.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/start-install.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/installing.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-root-pwd.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/restart.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/login.png">
+<meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/centos/login-success.png">
+<meta property="og:updated_time" content="2016-11-05T14:58:41.435Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cookie 那点事">
-<meta name="twitter:description" content="今天在给以前的项目做迭代发现代码中的小问题，先看代码
-12345678HttpServletRequest request = ContextHolderUtils.getRequest();String cookieCityName = ConstantHelper.COOKIE_CITY_NAME;CookieUtils.setCookie(cookieCityName,        req">
+<meta name="twitter:title" content="vmware 安装 centos7">
+<meta name="twitter:description" content="最近在看《大型网站技术架构》这本书，有一种相见恨晚的感觉。虽然现在的自己对网站架构概念还比较模糊，但是平常逛大牛博客对一些名词也有所耳闻，例如分布式系统、负载均衡、反向代理和消息队列等等。所以脑子中总会冒一些问题，到底啥事分布式，服务器为啥要集群，网站大了以后要怎么扩展等系列问题。很幸运的是，这本书开头就讲了大型网站架构演化的过程，有种茅塞顿开之感。既然有心向之，那就do it!第一步安装linu">
 
     
     <link rel="alternative" href="/atom.xml" title="码农与单车" type="application/atom+xml">
@@ -83,14 +107,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/22/bug-with-cookie/" title="Cookie 那点事" itemprop="url">Cookie 那点事</a>
+      <a href="/2016/11/05/vmware-centos/" title="vmware 安装 centos7" itemprop="url">vmware 安装 centos7</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="hooau" target="_blank" itemprop="author">hooau</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-22T09:31:43.000Z" itemprop="datePublished"> 發表於 2016-03-22</time>
+    <time datetime="2016-11-05T10:34:22.000Z" itemprop="datePublished"> 發表於 2016-11-05</time>
     
   </p>
 </header>
@@ -99,15 +123,67 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载_vmware_和_centos7"><span class="toc-number">1.</span> <span class="toc-text">下载 vmware 和 centos7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装centos（一）"><span class="toc-number">2.</span> <span class="toc-text">安装centos（一）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装centos（二）"><span class="toc-number">3.</span> <span class="toc-text">安装centos（二）</span></a></li></ol>
 		
 		</div>
 		
-		<p>今天在给以前的项目做迭代发现代码中的小问题，先看代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HttpServletRequest request = ContextHolderUtils.getRequest();</span><br><span class="line">String cookieCityName = ConstantHelper.COOKIE_CITY_NAME;</span><br><span class="line">CookieUtils.setCookie(cookieCityName,</span><br><span class="line">        request.getParameter(<span class="string">"cityValue"</span>),</span><br><span class="line">        ConstantHelper.COOKIE_CITY_AGE,</span><br><span class="line">        <span class="keyword">true</span>,</span><br><span class="line">        request, ContextHolderUtils.getResponse());</span><br><span class="line">String city = CookieUtils.getCookieValue(cookieCityName, request);</span><br></pre></td></tr></table></figure>
-<p>代码的意思就是先存cookie，再取cookie。那么问题来了，从request中取cookie能取到值么？在上面代码样例中肯定是不能的，通过response设置cookie到客户端，前提是response要提交，也就是浏览器要成功收到响应。在这个代码中，设置cookie的同时又去获取cookie值，city永远是null（除非第二次访问这个方法）。</p>
-<p>为什么我对这段代码这么敏感，因为之前自己也犯这样的错，而且这个错还特别不好调试，因为它昙花一现。比如写完代码开始打开浏览器访问，虽然第一次city是为null。但一般这时候你不会打断点去调试，一心想着页面能不能正常显示（人的想象总是美好的）。接着你就要调试调试，再次访问发现一切又正常了，city也有值了。于是你就说eclipse抽风了，不断调试，发现没啥问题，可能人品不好吧，你只能这么说。某一天，cookie被清，问题重现了，准备调试了，又tm正常了！然后，你疯了。</p>
-<p>吃一堑，长一智。</p>
+		<p>最近在看《大型网站技术架构》这本书，有一种相见恨晚的感觉。虽然现在的自己对网站架构概念还比较模糊，但是平常逛大牛博客对一些名词也有所耳闻，例如分布式系统、负载均衡、反向代理和消息队列等等。<br>所以脑子中总会冒一些问题，到底啥事分布式，服务器为啥要集群，网站大了以后要怎么扩展等系列问题。很幸运的是，这本书开头就讲了大型网站架构演化的过程，有种茅塞顿开之感。既然有心向之，那就do it!<br>第一步安装linux（卧槽，才入正题，废话真多~），笔者选用的centos7，网上安装教程一大堆，但还是结合自己的总结下。</p>
+<h2 id="下载_vmware_和_centos7">下载 vmware 和 centos7</h2><p><a href="http://www.vmware.com/products/workstation/workstation-evaluation.html" target="_blank" rel="external">vmware pro 下载</a><br><br><a href="http://101.96.10.69/isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1511.iso" target="_blank" rel="external">centos7 下载</a></p>
+<h2 id="安装centos（一）">安装centos（一）</h2><p>在安装完vmware以后，新建虚拟机，默认典型，下一步</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/typical.png" alt=""></p>
+<p>选择“稍后安装操作系统”</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/next-install.png" alt=""></p>
+<p>客户机操作系统选择 linux，版本选择CentOS 64位</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/select-linux-centos64.png" alt=""></p>
+<p>选择安装位置，例如我的vm_01, vm_02, vm_03…</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/install-location.png" alt=""></p>
+<p>磁盘容量默认20G，选择“将磁盘存储为单个文件”</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-disk-capacity.png" alt=""></p>
+<p>自定义硬件用默认的就行，点击“完成”</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-hardware.png" alt=""></p>
+<h2 id="安装centos（二）">安装centos（二）</h2><p>右键刚创建好的虚拟机，点“设置”，单击“CD/DVD (IDE)”，选择“使用 ISO镜像文件”，浏览下好的centos操作系统的iso文件，点“确定”</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-iso.png" alt=""></p>
+<p>点击“开启此虚拟机”，在出现的界面中选择 “Install CentOS 7”（注：将输入定位到虚拟机，按Ctrl + G；回到原操作系统，按Ctrl + Alt）</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/select-centos.png" alt=""></p>
+<p>如果你一切还顺利的话，就到了选择语言的界面</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/select-language.png" alt=""></p>
+<p>点击“日期和时间”，自己设置下就行</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-date.png" alt=""></p>
+<p>点击“安装源”，默认选中“自动检测到的安装介质”，不用改，点“完成”</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-install-source.png" alt=""></p>
+<p>点击“软件选择”，我选的是“虚拟化主机”，因为我只想用命令行，所以不用客户端，“最小安装”好多功能要自己另外配，麻烦</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/select-env.png" alt=""></p>
+<p>点击“安装位置”，点击下面的“我要配置分区”，点“完成”，出现的界面中选择“标准分区”</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-zone.png" alt=""></p>
+<p>点击左下角“+”，添加/boot，大小为200M</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-boot.png" alt=""></p>
+<p>并设置”文件系统“为 ext4</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-boot-file.png" alt=""></p>
+<p>继续添加挂载点swap，容量为2G，<strong>不用修改文件系统类型</strong></p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-swap.png" alt=""></p>
+<p>添加/home，大小2G，<strong>文件系统为ext4</strong></p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-home.png" alt=""></p>
+<p>添加/，容量不填，即剩余容量都分配给它，<strong>文件系统为ext4</strong></p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-root.png" alt=""></p>
+<p>点击”完成“</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/zone-ok.png" alt=""></p>
+<p>点击”接受更改“</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/accept-change.png" alt=""></p>
+<p>点击”网络和主机名“，开启，点击”完成“</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/net-host.png" alt=""></p>
+<p>点击”开始安装“</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/start-install.png" alt=""></p>
+<p>安装要个几分钟，这时候你可以设置root密码</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/installing.png" alt=""></p>
+<p>设置root账户密码</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/set-root-pwd.png" alt=""></p>
+<p>安装完成后”重启“</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/restart.png" alt=""></p>
+<p>如果没问题系统会提示登陆，输入root账户名和密码</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/login.png" alt=""></p>
+<p>登陆成功</p>
+<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/centos/login-success.png" alt=""></p>
+<p>到这vmware中安装centos就搞定了！</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -115,13 +191,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/code/">code</a>
+  <a class="article-category-link" href="/categories/linux/">linux</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/cookie/">cookie</a><a href="/tags/java/">java</a>
+  <span></span> <a href="/tags/centos/">centos</a><a href="/tags/linux/">linux</a>
   </div>
 
 </div>
@@ -130,7 +206,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://coderbike.com/2016/03/22/bug-with-cookie/" data-title="Cookie 那点事 | 码农与单车" data-tsina="1683126732" class="share clearfix">
+	  <div data-url="http://coderbike.com/2016/11/05/vmware-centos/" data-title="vmware 安装 centos7 | 码农与单车" data-tsina="1683126732" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -143,19 +219,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/05/06/idea-comment-template/" title="idea类和方法注释模板">
-  <strong>上一篇：</strong><br/>
-  <span>
-  idea类和方法注释模板</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/03/18/difference-between-javac-and-eclipse-compiler/"  title="eclipse项目迁移到Intellij idea踩到编译器的坑">
+<a href="/2016/09/06/simple-factory/"  title="简单工厂模式">
  <strong>下一篇：</strong><br/> 
- <span>eclipse项目迁移到Intellij idea踩到编译器的坑
+ <span>简单工厂模式
 </span>
 </a>
 </div>
@@ -164,7 +232,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/03/22/bug-with-cookie/" data-title="Cookie 那点事" data-url="http://coderbike.com/2016/03/22/bug-with-cookie/"></div>
+	<div class="ds-thread" data-thread-key="2016/11/05/vmware-centos/" data-title="vmware 安装 centos7" data-url="http://coderbike.com/2016/11/05/vmware-centos/"></div>
 </section>
 
 
@@ -174,7 +242,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载_vmware_和_centos7"><span class="toc-number">1.</span> <span class="toc-text">下载 vmware 和 centos7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装centos（一）"><span class="toc-number">2.</span> <span class="toc-text">安装centos（一）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装centos（二）"><span class="toc-number">3.</span> <span class="toc-text">安装centos（二）</span></a></li></ol>
  
   </div>
 
