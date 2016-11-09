@@ -89,18 +89,18 @@
 
 
 <meta name="description" content="今天在给以前的项目做迭代发现代码中的小问题，先看代码
-12345678HttpServletRequest request = ContextHolderUtils.getRequest();String cookieCityName = ConstantHelper.COOKIE_CITY_NAME;CookieUtils.setCookie(cookieCityName,        req">
+12345678910public void setCity() &amp;#123;        HttpServletRequest request = ContextHolderUtils.getRequest();        String cookieCityName = ConstantHelper.COOKIE_CITY_NAME;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cookie 那点事">
 <meta property="og:url" content="http://coderbike.com/2016/03/22/bug-with-cookie/index.html">
 <meta property="og:site_name" content="码农与单车">
 <meta property="og:description" content="今天在给以前的项目做迭代发现代码中的小问题，先看代码
-12345678HttpServletRequest request = ContextHolderUtils.getRequest();String cookieCityName = ConstantHelper.COOKIE_CITY_NAME;CookieUtils.setCookie(cookieCityName,        req">
-<meta property="og:updated_time" content="2016-11-05T10:32:36.076Z">
+12345678910public void setCity() &amp;#123;        HttpServletRequest request = ContextHolderUtils.getRequest();        String cookieCityName = ConstantHelper.COOKIE_CITY_NAME;">
+<meta property="og:updated_time" content="2016-11-09T09:39:42.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cookie 那点事">
 <meta name="twitter:description" content="今天在给以前的项目做迭代发现代码中的小问题，先看代码
-12345678HttpServletRequest request = ContextHolderUtils.getRequest();String cookieCityName = ConstantHelper.COOKIE_CITY_NAME;CookieUtils.setCookie(cookieCityName,        req">
+12345678910public void setCity() &amp;#123;        HttpServletRequest request = ContextHolderUtils.getRequest();        String cookieCityName = ConstantHelper.COOKIE_CITY_NAME;">
 
 
 
@@ -323,8 +323,8 @@
 
       
         <p>今天在给以前的项目做迭代发现代码中的小问题，先看代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HttpServletRequest request = ContextHolderUtils.getRequest();</span><br><span class="line">String cookieCityName = ConstantHelper.COOKIE_CITY_NAME;</span><br><span class="line">CookieUtils.setCookie(cookieCityName,</span><br><span class="line">        request.getParameter(<span class="string">"cityValue"</span>),</span><br><span class="line">        ConstantHelper.COOKIE_CITY_AGE,</span><br><span class="line">        <span class="keyword">true</span>,</span><br><span class="line">        request, ContextHolderUtils.getResponse());</span><br><span class="line">String city = CookieUtils.getCookieValue(cookieCityName, request);</span><br></pre></td></tr></table></figure>
-<p>代码的意思就是先存cookie，再取cookie。那么问题来了，从request中取cookie能取到值么？在上面代码样例中肯定是不能的，通过response设置cookie到客户端，前提是response要提交，也就是浏览器要成功收到响应。在这个代码中，设置cookie的同时又去获取cookie值，city永远是null（除非第二次访问这个方法）。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCity</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        HttpServletRequest request = ContextHolderUtils.getRequest();</span><br><span class="line">        String cookieCityName = ConstantHelper.COOKIE_CITY_NAME;</span><br><span class="line">        CookieUtils.setCookie(cookieCityName,</span><br><span class="line">                request.getParameter(<span class="string">"cityValue"</span>),</span><br><span class="line">                ConstantHelper.COOKIE_CITY_AGE,</span><br><span class="line">                <span class="keyword">true</span>,</span><br><span class="line">                request, ContextHolderUtils.getResponse());</span><br><span class="line">        String city = CookieUtils.getCookieValue(cookieCityName, request);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码的意思就是先存cookie，再取cookie。那么问题来了，从request中取cookie能取到值么？在上面代码样例中肯定是不能的，通过response设置cookie到客户端，前提是response要提交，也就是浏览器要成功收到响应。在这个代码中，设置cookie的同时又去获取cookie值，city永远是null（除非第二次访问这个方法）。<a id="more"></a></p>
 <p>为什么我对这段代码这么敏感，因为之前自己也犯这样的错，而且这个错还特别不好调试，因为它昙花一现。比如写完代码开始打开浏览器访问，虽然第一次city是为null。但一般这时候你不会打断点去调试，一心想着页面能不能正常显示（人的想象总是美好的）。接着你就要调试调试，再次访问发现一切又正常了，city也有值了。于是你就说eclipse抽风了，不断调试，发现没啥问题，可能人品不好吧，你只能这么说。某一天，cookie被清，问题重现了，准备调试了，又tm正常了！然后，你疯了。</p>
 <p>吃一堑，长一智。</p>
 

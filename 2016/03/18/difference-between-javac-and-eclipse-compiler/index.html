@@ -88,23 +88,17 @@
 
 
 
-<meta name="description" content="近期尝试使用idea，把公司项目从github上检出到idea中，设置一番，启动tomcat。一切看起来貌似很顺利，但是事实总比你想象的要糟糕，启动报错了。推断的类型不符合声明的范围（前提项目本身没问题，公司一直用这么一套框架来着）。在设置各种jdk版本后，依然不好使。最后想到可能是编译环境的问题，找到compile
-
-此处显示use compiler，由于肚子里还剩几个单词，当然知道这里是选择编">
+<meta name="description" content="近期尝试使用idea，把公司项目从github上检出到idea中，设置一番，启动tomcat。一切看起来貌似很顺利，但是事实总比你想象的要糟糕，启动报错了。推断的类型不符合声明的范围（前提项目本身没问题，公司一直用这么一套框架来着）。在设置各种jdk版本后，依然不好使。最后想到可能是编译环境的问题，找到compile">
 <meta property="og:type" content="article">
 <meta property="og:title" content="eclipse项目迁移到Intellij idea踩到编译器的坑">
 <meta property="og:url" content="http://coderbike.com/2016/03/18/difference-between-javac-and-eclipse-compiler/index.html">
 <meta property="og:site_name" content="码农与单车">
-<meta property="og:description" content="近期尝试使用idea，把公司项目从github上检出到idea中，设置一番，启动tomcat。一切看起来貌似很顺利，但是事实总比你想象的要糟糕，启动报错了。推断的类型不符合声明的范围（前提项目本身没问题，公司一直用这么一套框架来着）。在设置各种jdk版本后，依然不好使。最后想到可能是编译环境的问题，找到compile
-
-此处显示use compiler，由于肚子里还剩几个单词，当然知道这里是选择编">
+<meta property="og:description" content="近期尝试使用idea，把公司项目从github上检出到idea中，设置一番，启动tomcat。一切看起来貌似很顺利，但是事实总比你想象的要糟糕，启动报错了。推断的类型不符合声明的范围（前提项目本身没问题，公司一直用这么一套框架来着）。在设置各种jdk版本后，依然不好使。最后想到可能是编译环境的问题，找到compile">
 <meta property="og:image" content="http://7xoz4l.com1.z0.glb.clouddn.com/idea-compiler.png">
-<meta property="og:updated_time" content="2016-07-04T08:29:39.567Z">
+<meta property="og:updated_time" content="2016-11-09T08:54:56.944Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="eclipse项目迁移到Intellij idea踩到编译器的坑">
-<meta name="twitter:description" content="近期尝试使用idea，把公司项目从github上检出到idea中，设置一番，启动tomcat。一切看起来貌似很顺利，但是事实总比你想象的要糟糕，启动报错了。推断的类型不符合声明的范围（前提项目本身没问题，公司一直用这么一套框架来着）。在设置各种jdk版本后，依然不好使。最后想到可能是编译环境的问题，找到compile
-
-此处显示use compiler，由于肚子里还剩几个单词，当然知道这里是选择编">
+<meta name="twitter:description" content="近期尝试使用idea，把公司项目从github上检出到idea中，设置一番，启动tomcat。一切看起来貌似很顺利，但是事实总比你想象的要糟糕，启动报错了。推断的类型不符合声明的范围（前提项目本身没问题，公司一直用这么一套框架来着）。在设置各种jdk版本后，依然不好使。最后想到可能是编译环境的问题，找到compile">
 
 
 
@@ -326,7 +320,7 @@
       
 
       
-        <p>近期尝试使用idea，把公司项目从github上检出到idea中，设置一番，启动tomcat。一切看起来貌似很顺利，但是事实总比你想象的要糟糕，启动报错了。<strong>推断的类型不符合声明的范围</strong>（前提项目本身没问题，公司一直用这么一套框架来着）。在设置各种jdk版本后，依然不好使。最后想到可能是编译环境的问题，找到compile</p>
+        <p>近期尝试使用idea，把公司项目从github上检出到idea中，设置一番，启动tomcat。一切看起来貌似很顺利，但是事实总比你想象的要糟糕，启动报错了。<strong>推断的类型不符合声明的范围</strong>（前提项目本身没问题，公司一直用这么一套框架来着）。在设置各种jdk版本后，依然不好使。最后想到可能是编译环境的问题，找到compile<a id="more"></a></p>
 <p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/idea-compiler.png" alt="idea设置编译环境"></p>
 <p>此处显示use compiler，由于肚子里还剩几个单词，当然知道这里是选择编译器。但为什么要选择编译器，默认是javac，就是当初学java的时候用window命令行javac xx编译java文件的那个编译器。说实话，到现在我也就认识这个-_-。展开选择，发现有Eclipse, 至于下面两个是啥就真不知道，管它呢。选择eclipse试试。果然，tomcat成功启动，chrome弹出项目首页。此时，心里这个爽啊！！！</p>
 <p>但是为啥javac和eclipse这两个编译器有区别呢？为啥还有这么多的java编译器呢？这个编译器是只对javac包了层壳还是真的就是两种不同的compiler？于是Google了下，在爆栈上大致了解了下<a href="http://stackoverflow.com/questions/3061654/what-is-the-difference-between-javac-and-the-eclipse-compiler" target="_blank" rel="external">what is the difference between  javac and the eclipse compiler</a><br>主要两个意思：</p>

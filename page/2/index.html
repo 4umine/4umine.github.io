@@ -255,264 +255,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/03/01/servlet-mapping-url-pattern/" itemprop="url">
-                  url-pattern中 / 和 /* 的区别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-01T14:38:47+08:00" content="2016-03-01">
-              2016-03-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/code/" itemprop="url" rel="index">
-                    <span itemprop="name">code</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/01/servlet-mapping-url-pattern/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/01/servlet-mapping-url-pattern/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>首先让我意识到这两者差别的是在学习springmvc过程中，在web.xml中配置DispatcherServlet映射路径时碰到的，先看看引起这个问题的场景。</p>
-<h3 id="场景">场景</h3><p>web.xml中DispatcherServlet配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 前端控制器配置 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="title">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="title">servlet-class</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="title">init-param</span>&gt;</span></span><br><span class="line">  	    <span class="tag">&lt;<span class="title">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="title">param-name</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="title">param-value</span>&gt;</span>classpath:config/springmvc-servlet.xml<span class="tag">&lt;/<span class="title">param-value</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="title">init-param</span>&gt;</span></span><br><span class="line">  	<span class="comment">&lt;!-- 容器启动时初始化该servlet --&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="title">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="title">load-on-startup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">servlet-mapping</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>处理器中逻辑代码<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@<span class="type">Controller</span></span><br><span class="line">@<span class="type">RequestMapping</span>(value = <span class="string">"/user"</span>)</span><br><span class="line">public class <span class="type">UserController</span> &#123;</span><br><span class="line"></span><br><span class="line">	@<span class="type">RequestMapping</span>(value = <span class="string">"/login"</span>, <span class="keyword">method</span> = <span class="type">RequestMethod</span>.<span class="type">POST</span>)</span><br><span class="line">	public <span class="type">String</span> login(<span class="type">HttpServletRequest</span> req, <span class="type">User</span> user) &#123;</span><br><span class="line">		<span class="type">String</span> name = req.getParameter(<span class="string">"name"</span>);</span><br><span class="line">		<span class="type">System</span>.<span class="keyword">out</span>.println(name);</span><br><span class="line">		<span class="type">System</span>.<span class="keyword">out</span>.println(user);</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>postman发起POST请求</p>
-<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/springmv-postman.png" alt="postman发起POST请求"></p>
-<p>后台打印信息<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">abc</span><br><span class="line">&#123;name:abc, password:1&#125;</span><br><span class="line">三月 01, 2016 11:40:20 上午 org.springframework.web.servlet.DispatcherServlet noHandlerFound</span><br><span class="line"><span class="label">WARNING: </span>No mapping found for HTTP request with URI [/springmvc-demo/WEB-INF/views/success.jsp] in DispatcherServlet with name <span class="emphasis">'springmvc'</span></span><br></pre></td></tr></table></figure></p>
-<p>但是页面报404，什么鬼。通过控制台打印信息可以看到是进了login这个方法的，只是跳转页面的报错。仔细检查了springmvc-serlvet.xml视图解析器prefix和suffix，配置，并没发现有什么问题。这时不知道咋想的就试着把web.xml中DispatcherServlet映射规则改成下面这样<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">servlet-mapping</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>也就是把url-pattern中去掉星号,再访问就OK了，真是奇了怪了。于是谷歌之，万能的爆栈上有这样的解释 <a href="http://stackoverflow.com/questions/4140448/difference-between-and-in-servlet-mapping-url-pattern" target="_blank" rel="external">Difference between / and /* in serlvet mapping url pattern</a>再看看控制台打印的信息顿悟！</p>
-<h3 id="总结">总结</h3><ol>
-<li>/* 能匹配所有请求URL，/ 不匹配 .jsp 等后缀映射规则</li>
-<li>当映射规则为 /* 时，最后返回xx.jsp也经过DispatcherServlet，它又会去找相对应的处理器，这也是控制台打印noHandlerFound，也就导致了404错误，页面更别想看到。当改成 / 后，servlet不会匹配到.jsp的URI，当然就能正常返回页面了</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/29/mysql-engines/" itemprop="url">
-                  MySQL数据库——存储引擎
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-29T11:12:02+08:00" content="2016-01-29">
-              2016-01-29
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/code/" itemprop="url" rel="index">
-                    <span itemprop="name">code</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/29/mysql-engines/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/29/mysql-engines/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>平常接触数据库就写写sql，对事务都慢慢淡忘了，现在打算温习下。再看了一些资料后就动手实现脏读、不可重复读和幻读。我们知道脏读（read-uncommitted），顾名思义就是读了未提交的，意思就是一个事务读取了另一个还没提交事务的数据。但在重现脏读问题的时候就掉进坑了，就是该事务的隔离级别为isolation read uncommitted时，无论如何都读取不到另一个事务（没有提交）中修改的数据。顿时丈二的和尚摸不到头脑，一时不知道是哪里出了问题。于是Google吧，mysql transaction not working，立马反应过来是数据库引擎搞得鬼，<a href="http://stackoverflow.com/questions/19163393/transaction-not-working-in-mysql" target="_blank" rel="external">爆栈上的答案</a>，再看看本地数据的引擎</p>
-<pre><code>mysql&gt; show engines<span class="comment">;</span>
-</code></pre><p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/tranengines.png" alt="mysql存储引擎"><br>到这里问题一目了然，MySQL默认存储引擎为MyISAM，但是我们可以发现这些引擎中只有InnoDB支持事务。而在建表的时候只是简单的create table…并没有设置其它的选项。于是在navicat中设置下表的engine</p>
-<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/transetInnoDB.png" alt="设置engine为InnoDB"><br>然后就没有然后了，开始愉快的read uncommitted去了。<br>最后在stackoverflow上还发现个问题</p>
-<blockquote>
-<p>How can I check MySQL engine type for a specific database via mysql query?</p>
-</blockquote>
-<p>答案是：<a href="http://stackoverflow.com/questions/6829948/how-can-i-check-mysql-engine-type-for-a-specific-database" target="_blank" rel="external">MySQL中数据库是没有引擎类型的，只有表才有</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/01/28/mysql-isolation-level/" itemprop="url">
                   MySQL隔离级别
                 </a>
@@ -582,34 +324,12 @@
 
       
         
-          
-            <p>前两天线上项目在有的手机上出现bug，开始以为是兼容性问题，但我们同事手机都试了，都OK。折腾了一天，最后发现问题的根源是事务这块，于是决定回头再看看这方面内容。很长时间自己对数据库就仅限于写写sql语句，对事务逐渐淡忘，现在捡起来应该不晚。<br>网上看了些资料，便是动手重现事务隔离级别分别解决的四个问题。MySQL有四个事务隔离级别，级别从低到高：</p>
-<blockquote>
-<ul>
-<li>未提交读（read uncommitted）    允许脏读</li>
-<li>提交读（read committed）        避免脏读，有可重复读</li>
-<li>可重复读（repeatable read）     避免可重复读，有幻读</li>
-<li>串行化（serializable）          避免幻读</li>
-</ul>
-</blockquote>
-<p>我用的方法打开两个MySQL命令行，模拟两个事务，用的是还是那个经典的转账例子，假如两事务角色分别叫王大锤、老板。<br>首先来熟悉几个命令<br><strong>查看全局和会话事务隔离级别：</strong></p>
-<pre><code><span class="operator"><span class="keyword">select</span> @@<span class="keyword">global</span>.tx_isolation;</span>
-<span class="operator"><span class="keyword">select</span> @@<span class="keyword">session</span>.tx_isolation;</span>
-<span class="operator"><span class="keyword">select</span> @@tx_isolation;</span>
-</code></pre><p>MySQL默认隔离级别是repeatable-read，不可重复读，如下图</p>
-<p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/tranisolation.png" alt="MySQL默认隔离级别"></p>
-<p><strong>设置全局会话隔离级别：</strong></p>
-<pre><code><span class="operator"><span class="keyword">set</span> [<span class="keyword">global</span>|<span class="keyword">session</span>] <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> <span class="keyword">read</span> uncommiited;</span>
-默认（不带global或session）是为下一个事务设置隔离级别
-</code></pre><h2 id="开始演示脏读">开始演示脏读</h2><p>(1)　王大锤<br>设置事务隔离级别</p>
-<pre><code><span class="operator"><span class="keyword">set</span> <span class="keyword">transaction</span> <span class="keyword">isolation</span> <span class="keyword">level</span> <span class="keyword">read</span> uncommitted;</span>
-</code></pre><p>接着开启事务并查询工资</p>
-<pre><code>mysql&gt; start <span class="keyword">transaction</span>;
-
-mysql&gt; select * <span class="keyword">from</span> account;
-</code></pre><p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/tranwangdc.png" alt="王大锤的工资"><br>此时王大锤工资为2000<br>(2) 老板</p>
-
-          
+          <p>前两天线上项目在有的手机上出现bug，开始以为是兼容性问题，但我们同事手机都试了，都OK。折腾了一天，最后发现问题的根源是事务这块，于是决定回头再看看这方面内容。很长时间自己对数据库就仅限于写写sql语句，对事务逐渐淡忘，现在捡起来应该不晚。<br>网上看了些资料，便是动手重现事务隔离级别分别解决的四个问题。MySQL有四个事务隔离级别，级别从低到高：
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/28/mysql-isolation-level/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -848,17 +568,12 @@ mysql&gt; select * <span class="keyword">from</span> account;
 
       
         
-          
-            <p>昨天给iOS同事那边调试接口，目的是保存微信用户信息。接口用户姓名始终乱码，同事说他那边已经转成UTF-8。以前每次碰到这个问题，第一反应就是看看项目中有没有CharacterEncodeFilter，且web.xml中是否忘了配置。看看项目果然是没有，于是自己写了个过滤器加上去。以为大功告成，结果还是乱码。于是找度娘找谷歌，最多就两个版本<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String</span> <span class="built_in">str</span> = <span class="keyword">new</span> <span class="keyword">String</span>(oldStr.getBytes(<span class="string">"ISO8859-1"</span>), <span class="string">"UTF-8"</span>);</span><br><span class="line">    </span><br><span class="line">request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure></p>
-<p>最后问了问同事（年会刚抽中万元现金，为什么不是我╥﹏╥…），加上自己回去调试，问题终于解决。。。</p>
-<font color="red"><strong>总结如下</strong></font>
-
-<p>post请求：设置过滤器即可</p>
-<p>get请求 ：过滤器不起作用，修改tomcat配置文件server.xml，加上</p>
-<pre><code><span class="setting">URIEncoding=<span class="value"><span class="string">"UTF-8"</span></span></span>
-</code></pre><p><img src="http://7xoz4l.com1.z0.glb.clouddn.com/tomcat-server.png" alt="修改server.xml"></p>
-
-          
+          <p>昨天给iOS同事那边调试接口，目的是保存微信用户信息。接口用户姓名始终乱码，同事说他那边已经转成UTF-8。以前每次碰到这个问题，第一反应就是看看项目中有没有CharacterEncodeFilter，且web.xml中是否忘了配置。看看项目果然是没有，于是自己写了个过滤器加上去。以为大功告成，结果还是乱码。于是找度娘找谷歌，最多就两个版本
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/19/character-encode/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -976,8 +691,8 @@ mysql&gt; select * <span class="keyword">from</span> account;
       
         
           
-            <p>hello, I’m hooau. 请不要问hooau啥意思，我相信你只要把它读出来就明白了。至于为啥用这个拿来做域名，我也不知道，就感觉读起来挺顺口。还有就是告诫自己，hooau，you’re just an ant! </p>
-
+            <pre><code>hello, I<span class="comment">'m imant. Tell myself i am only an ant every day. </span>
+</code></pre>
           
         
       
