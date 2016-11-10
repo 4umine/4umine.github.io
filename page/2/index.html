@@ -255,6 +255,128 @@
             
               
                 
+                <a class="post-title-link" href="/2016/01/29/mysql-engines/" itemprop="url">
+                  MySQL数据库——存储引擎
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-29T11:12:02+08:00" content="2016-01-29">
+              2016-01-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index">
+                    <span itemprop="name">code</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/29/mysql-engines/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/29/mysql-engines/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>平常接触数据库就写写sql，对事务都慢慢淡忘了，现在打算温习下。再看了一些资料后就动手实现脏读、不可重复读和幻读。我们知道脏读（read-uncommitted），顾名思义就是读了未提交的，意思就是一个事务读取了另一个还没提交事务的数据。但在重现脏读问题的时候就掉进坑了，就是该事务的隔离级别为isolation read uncommitted时，无论如何都读取不到另一个事务（没有提交）中修改的数据。顿时丈二的和尚摸不到头脑，一时不知道是哪里出了问题。于是Google吧，mysql transaction not working，立马反应过来是数据库引擎搞得鬼，<a href="http://stackoverflow.com/questions/19163393/transaction-not-working-in-mysql">爆栈上的答案</a>，再看看本地数据的引擎
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/29/mysql-engines/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/01/28/mysql-isolation-level/" itemprop="url">
                   MySQL隔离级别
                 </a>
