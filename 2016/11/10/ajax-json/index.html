@@ -88,16 +88,16 @@
 
 
 
-<meta name="description" content="今天公司同事">
+<meta name="description" content="今天公司实习生在开发验证用户短信验证码时遇到个奇怪的问题，大概场景是后台把验证码加密后存在页面隐藏域，用户在填完验证码点登录通过ajax把隐藏域加密的验证码和用户输入的验证码一起发给后台。后台把用户输入的验证码通过一样的方式进行加密再和之前那个隐藏域的进行对比。说到现在，逻辑貌似没啥问题，但问题出在后台获取不到隐藏域的加密验证码。一筹莫展时帮他看看，基本代码如下：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ajax 小记">
 <meta property="og:url" content="http://coderbike.com/2016/11/10/ajax-json/index.html">
 <meta property="og:site_name" content="刀刀GO">
-<meta property="og:description" content="今天公司同事">
-<meta property="og:updated_time" content="2016-11-10T07:36:00.479Z">
+<meta property="og:description" content="今天公司实习生在开发验证用户短信验证码时遇到个奇怪的问题，大概场景是后台把验证码加密后存在页面隐藏域，用户在填完验证码点登录通过ajax把隐藏域加密的验证码和用户输入的验证码一起发给后台。后台把用户输入的验证码通过一样的方式进行加密再和之前那个隐藏域的进行对比。说到现在，逻辑貌似没啥问题，但问题出在后台获取不到隐藏域的加密验证码。一筹莫展时帮他看看，基本代码如下：">
+<meta property="og:updated_time" content="2016-11-11T03:50:15.428Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax 小记">
-<meta name="twitter:description" content="今天公司同事">
+<meta name="twitter:description" content="今天公司实习生在开发验证用户短信验证码时遇到个奇怪的问题，大概场景是后台把验证码加密后存在页面隐藏域，用户在填完验证码点登录通过ajax把隐藏域加密的验证码和用户输入的验证码一起发给后台。后台把用户输入的验证码通过一样的方式进行加密再和之前那个隐藏域的进行对比。说到现在，逻辑貌似没啥问题，但问题出在后台获取不到隐藏域的加密验证码。一筹莫展时帮他看看，基本代码如下：">
 
 
 
@@ -300,7 +300,29 @@
       
 
       
-        <p>今天公司同事</p>
+        <p>今天公司实习生在开发验证用户短信验证码时遇到个奇怪的问题，大概场景是后台把验证码加密后存在页面隐藏域，用户在填完验证码点登录通过ajax把隐藏域加密的验证码和用户输入的验证码一起发给后台。<br>后台把用户输入的验证码通过一样的方式进行加密再和之前那个隐藏域的进行对比。说到现在，逻辑貌似没啥问题，但问题出在后台获取不到隐藏域的加密验证码。一筹莫展时帮他看看，基本代码如下：<a id="more"></a><br>点击获取验证码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#sendCode'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url : <span class="string">'...'</span>,</span><br><span class="line">        data : &#123;mobile : $(<span class="string">'#mobile'</span>).val()&#125;,</span><br><span class="line">        success : <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">            <span class="comment">//给隐藏域赋值</span></span><br><span class="line">            $(<span class="string">'#encodeStr'</span>).val(data.token);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>点击登陆按钮</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#submit'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url  : <span class="string">'example.com/login'</span>,</span><br><span class="line">        type : <span class="string">'POST'</span>,</span><br><span class="line">        data : &#123;</span><br><span class="line">            mobile : $(<span class="string">'#mobile'</span>).val(),</span><br><span class="line">            <span class="comment">//隐藏域加密后的验证码</span></span><br><span class="line">            encodeStr : $(<span class="string">'#encodeStr'</span>).val(),</span><br><span class="line">            <span class="comment">//用户输入的验证码</span></span><br><span class="line">            code : $(<span class="string">'#code'</span>).val()</span><br><span class="line">        &#125;,</span><br><span class="line">        success : <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (data.code === <span class="number">200</span>) &#123;</span><br><span class="line">                <span class="comment">//登录成功跳转</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>上面发送验证码和提交登陆的目测没毛病，但后台收到的encodeStr始终是null，那会不会赋值的时候就没值<br>打印后台返回的data</p>
+<pre><code>console.<span class="built_in">log</span>(<span class="type">data</span>);
+</code></pre><p>控制台</p>
+<pre><code><span class="collection">{
+    token ： dfklj43lj4ldoiwurbs023443
+}</span>
+</code></pre><p>再看看data.token</p>
+<pre><code><span class="tag">console</span><span class="class">.log</span>(<span class="tag">data</span><span class="class">.token</span>);
+</code></pre><p>控制台</p>
+<pre><code><span class="literal">undefined</span>
+</code></pre><p>这确实有点莫名其妙，后台返回的json，data.token没毛病啊，那就看看后台咋写的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//省略若干行</span></span><br><span class="line">    Map&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;String, String&gt;();</span><br><span class="line">    map.put(<span class="string">"token"</span>, EncodeUtils.encode(<span class="string">"验证码"</span>));</span><br><span class="line">    printText(map);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里貌似也没毛病，再看看<code>printText()</code>这个方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printText</span><span class="params">(String jsonStr)</span> </span>&#123;</span><br><span class="line">    response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">    response.setContentType(<span class="string">"text/plain"</span>);</span><br><span class="line">    PrintWriter writer = response.getWriter();</span><br><span class="line">    writer.write(jsonStr);</span><br><span class="line">    writer.flush();</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>到这里一切就都明白了，你丫的设置响应内容类型为<code>text/plain</code>，告诉浏览器这是文本，那怎能当作json取数据呢。解决办法就是去掉<code>response.setContentType(&quot;text/plain&quot;)</code>，浏览器能自动判断类型<br>不过最佳实践应该是</p>
+<ul>
+<li>后台指定输出内容类型<code>response.setContentType(&quot;application/json&quot;)</code></li>
+<li>js指定接收数据类型<code>dataType: &#39;JSON&#39;</code></li>
+</ul>
 
       
     </div>
